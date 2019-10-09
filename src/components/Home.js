@@ -33,6 +33,7 @@ export default class Home extends React.Component {
                 ולתמיכת קרנות ותורמים פרטיים.
               </p>
             </div>
+            
           </div>
         </div>
       </>
