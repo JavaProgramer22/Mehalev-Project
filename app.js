@@ -22,7 +22,8 @@ class App extends React.Component {
   }
 
   render() {
-    return this.state.isLoading ? <Loading /> : <AppRouter />;
+    // return this.state.isLoading ? <Loading /> : <AppRouter />;
+    return <AppRouter />
   }
 }
 
