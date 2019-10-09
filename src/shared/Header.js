@@ -8,11 +8,11 @@ export default class Header extends React.Component {
   render() {
     return (
       <nav
-        style={{ borderBottom: "1px solid purple" }}
+        style={{ borderBottom: "1px solid purple"}}
         className="navbar navbar-expand-lg navbar-light  d-flex justify-content-between"
       >
         <Link to="/">
-          <img src="logo.PNG" className="" style={{ height: "100px" }} />
+          <img src="loading.png" className="" style={{ height: "100px" }} />
         </Link>
         
       </nav>

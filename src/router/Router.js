@@ -4,7 +4,8 @@ import Navbar from "../shared/Navbar";
 import Footer from "../shared/Footer";
 import Header from "../shared/Header";
 import PageNotFound from "../shared/PageNotFound";
-
+import Home from '../components/Home.js'
+// import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
 // import { ToastContainer } from "react-toastify";
@@ -36,9 +37,10 @@ export default () => (
         <ToastContainer />
       </div> */}
       <Switch>
-          <Route path="/" component={PageNotFound} exact />
+        <Route path="/" component={Home} exact />
+        <Route component={PageNotFound} />
       </Switch>
-      <Footer className="" style={{backgroundColor:"blue"}}/>
+      <Footer />
     </div>
   </BrowserRouter>
 );
