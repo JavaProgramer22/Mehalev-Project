@@ -38,7 +38,7 @@ export default class Home extends React.Component {
           </div>
         </div> */}
         <Container>
-          <Row className="d-flex justify-content-center">
+          <Row className="justify-content-center">
             <h1>Home</h1>
           </Row>
           <div dir="rtl">
