@@ -1,5 +1,4 @@
 import React from "react";
-import $ from 'jquery';
 import Api from "../services/api";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,8 +32,8 @@ export default class Projects extends React.Component {
     this.setState({ Projects });
   }
   scrollUp() {
-    $("html, body").animate({ scrollTop: 0 }, 1000);
-  }
+    window.scrollTo({ top: 0, behavior: 'smooth' });  
+}
   render() {
     return (
       <Container>
