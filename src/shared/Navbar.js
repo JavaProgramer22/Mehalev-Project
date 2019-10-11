@@ -56,7 +56,7 @@ export default class Navbar extends React.Component {
       {
         icon: faUserLock,
         path: '/projects',
-        name: 'Projects',
+        name: 'פרויקטים',
         role:['admin']
       },
       {
