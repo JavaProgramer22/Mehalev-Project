@@ -54,6 +54,12 @@ export default class Navbar extends React.Component {
         role:['admin']
       },
       {
+        icon: faUserLock,
+        path: '/projects',
+        name: 'Projects',
+        role:['admin']
+      },
+      {
         icon: faCog,
         path: '/settings/add/roles',
         name: 'Settings',

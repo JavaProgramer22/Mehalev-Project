@@ -5,6 +5,7 @@ import Footer from "../shared/Footer";
 import Header from "../shared/Header";
 import PageNotFound from "../shared/PageNotFound";
 import Home from '../components/Home.js'
+import Projects from '../components/Projects';
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
@@ -38,6 +39,7 @@ export default () => (
       </div> */}
       <Switch>
         <Route path="/" component={Home} exact />
+        <Route path="/projects" component={Projects} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
