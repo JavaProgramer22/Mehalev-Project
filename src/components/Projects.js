@@ -5,42 +5,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, arrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-const btnScrollToTop = {
-  position: "fixed",
-  right: "10px",
-  bottom: "70px",
-  width: "50px",
-  height: "50px",
-  borderRadius: "50%",
-  background: "#0474b6",
-  boxShadow: "0 0 10px rgba(0,0,0,0.25)",
-  color: "#fff",
-  border: "none",
-  outline: "none",
-  cursor: "pointer"
-};
+
 export default class Projects extends React.Component {
   constructor() {
     super();
     this.state = {
       Projects: []
     };
-    this.scrollUp=this.scrollUp.bind(this);
   }
   componentDidMount() {
     const Projects = Api.getProjects();
     this.setState({ Projects });
   }
-  scrollUp() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });  
-}
+
   render() {
     return (
       <Container>
-        <button style={btnScrollToTop} onClick={this.scrollUp}>
-          <FontAwesomeIcon icon={faArrowUp} />
-        </button>
-
+        
         <Row className="justify-content-center">
           <h1>פרויקטים ועבודות גמר של סטודנטים</h1>
         </Row>
