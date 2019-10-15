@@ -6,6 +6,7 @@ import Header from "../shared/Header";
 import PageNotFound from "../shared/PageNotFound";
 import Home from '../components/Home.js'
 import Projects from '../components/Projects';
+import ScrollButton from '../shared/ScrollTopButton';
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
@@ -17,6 +18,7 @@ import Projects from '../components/Projects';
 export default () => (
   <BrowserRouter>
     <div>
+      <ScrollButton />
       <Header />
       {/* <DataContext.Consumer>
         {context=>{
