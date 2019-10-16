@@ -136,12 +136,9 @@ export default class Navbar extends React.Component {
         <div>
           <h3
             style={{
-              position: "fixed",
-              cursor: "pointer",
-              top: "90px",
-              zIndex: "100"
+              cursor: "pointer"
             }}
-            className="m-3 mt-4"
+            className="ml-2"
             onClick={this.toggleNavbar}
           >
             &#9776;
