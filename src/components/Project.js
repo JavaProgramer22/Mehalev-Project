@@ -17,7 +17,7 @@ class Project extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container style={{marginBottom:"150px"}} className="mt-5">
         <Row className="justify-content-center">
           <Card
             dir="rtl"
