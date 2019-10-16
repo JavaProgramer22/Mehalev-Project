@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUserCircle, faClipboardList, faUserLock, faCog, faLightbulb, faStar, faClipboardCheck, faListAlt, faPlus, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUserCircle, faClipboardList, faUserLock, faCog, faLightbulb, faStar, faClipboardCheck, faListAlt, faPlus, faStarHalfAlt, faPaperPlane, faArchive } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -54,7 +54,7 @@ export default class Navbar extends React.Component {
         role:['admin']
       },
       {
-        icon: faUserLock,
+        icon: faArchive,
         path: '/projects',
         name: 'פרויקטים',
         role:['admin']
@@ -100,6 +100,12 @@ export default class Navbar extends React.Component {
         path: '/assign-history/',
         name: 'My Assignments',
         role:['employee']
+      },
+      {
+        icon: faPaperPlane,
+        path: '/contactus/',
+        name: 'Contact Us',
+        role:['admin']
       },
     ];
     this.toggleNavbar = this.toggleNavbar.bind(this)
