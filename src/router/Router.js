@@ -8,6 +8,8 @@ import Home from "../components/Home.js";
 import Projects from "../components/Projects";
 import Project from "../components/Project";
 import ScrollButton from "../shared/ScrollTopButton";
+import ContactUs from "../components/ContactUs";
+
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
@@ -44,6 +46,7 @@ export default () => (
         <Route path="/" component={Home} exact />
         <Route path="/projects" component={Projects} />
         <Route path="/project/:id" component={Project} />
+        <Route path="/contactus" component={ContactUs} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />

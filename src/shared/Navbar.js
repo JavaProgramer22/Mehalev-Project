@@ -12,7 +12,9 @@ import {
   faClipboardCheck,
   faListAlt,
   faPlus,
-  faStarHalfAlt
+  faStarHalfAlt,
+  faPaperPlane,
+  faArchive
 } from "@fortawesome/free-solid-svg-icons";
 
 // import {DataContext} from './Provider/DataProvider'
@@ -61,7 +63,7 @@ export default class Navbar extends React.Component {
         role: ["admin"]
       },
       {
-        icon: faUserLock,
+        icon: faArchive,
         path: "/projects",
         name: "פרויקטים",
         role: ["admin"]
@@ -104,9 +106,16 @@ export default class Navbar extends React.Component {
       },
       {
         icon: faStarHalfAlt,
+
         path: "/assign-history/",
         name: "My Assignments",
         role: ["employee"]
+      },
+      {
+        icon: faPaperPlane,
+        path: "/contactus/",
+        name: "Contact Us",
+        role: ["admin"]
       }
     ];
     this.toggleNavbar = this.toggleNavbar.bind(this);
