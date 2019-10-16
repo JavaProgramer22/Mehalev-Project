@@ -7,6 +7,7 @@ import PageNotFound from "../shared/PageNotFound";
 import Home from '../components/Home.js'
 import Projects from '../components/Projects';
 import ScrollButton from '../shared/ScrollTopButton';
+import ContactUs from '../components/ContactUs'
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
@@ -42,6 +43,7 @@ export default () => (
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/projects" component={Projects} />
+        <Route path="/contactus" component={ContactUs} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
