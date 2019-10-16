@@ -4,11 +4,12 @@ import Navbar from "../shared/Navbar";
 import Footer from "../shared/Footer";
 import Header from "../shared/Header";
 import PageNotFound from "../shared/PageNotFound";
-import Home from "../components/Home.js";
-import Projects from "../components/Projects";
-import Project from "../components/Project";
-import ScrollButton from "../shared/ScrollTopButton";
-import ContactUs from "../components/ContactUs";
+import Home from '../components/Home.js'
+import Projects from '../components/Projects';
+import Project from '../components/Project';
+import ScrollButton from '../shared/ScrollTopButton';
+import ContactUs from '../components/ContactUs';
+import NewIdea from '../components/NewIdea';
 
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
@@ -47,6 +48,7 @@ export default () => (
         <Route path="/projects" component={Projects} />
         <Route path="/project/:id" component={Project} />
         <Route path="/contactus" component={ContactUs} />
+        <Route path="/newidea" component={NewIdea} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />

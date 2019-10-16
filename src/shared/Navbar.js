@@ -81,6 +81,12 @@ export default class Navbar extends React.Component {
         role: ["manager"]
       },
       {
+        icon: faLightbulb,
+        path: "/newidea",
+        name: "NewIdea",
+        role: ["admin"]
+      },
+      {
         icon: faStar,
         path: "/my-skills/0",
         name: "My Skills",
