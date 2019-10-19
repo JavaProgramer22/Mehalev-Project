@@ -158,13 +158,57 @@ const Projects = [
     youtubeUrl: "https://www.youtube.com/embed/WMahf9HjWTA"
   }
 ];
+const Categories = [
+  {
+    id: 1,
+    number: 112,
+    title: "חיפוש פרויקטים לפי תחומים",
+    imgSrc:"byFaculty.png"
+  },
+  {
+    id: 2,
+    number: 112,
+    title: 'חיפוש פרויקטים לפי א"ב',
+    imgSrc:"byABC.png"
+  },
+  {
+    id: 3,
+    number: 112,
+    title: "פרויקטים מומלצים",
+    imgSrc:"recommended.png"
+  },
+  {
+    id: 4,
+    number: 112,
+    title: "פרויקטים חדשים",
+    imgSrc:"new.png"
+  },
+  {
+    id: 5,
+    number: 112,
+    title: "פרויקטים בתקופת נסיון",
+    imgSrc:"exp.png"
+  }
+];
 class Api {
   getProjects() {
     return Projects;
   }
+  getCategories(){
+    return Categories;
+  }
   getProjectsByID(projectID) {
     Projects.filter(project => {
       return project.id == projectID;
+      // if (project.id == projectID) {
+      //   // console.log(project)
+      //   return project;
+      // }
+    });
+  }
+  getCategoriesByID(categoryID) {
+    Categories.filter(category => {
+      return category.id == categoryID;
       // if (project.id == projectID) {
       //   // console.log(project)
       //   return project;

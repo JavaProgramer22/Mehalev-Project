@@ -177,7 +177,6 @@ export default class NewIdea extends React.Component {
               <InputErrors errors={this.state.email.errors} />
             </div>
           </div>
-          רקע אקדמי ונסיון תעסוקתי
 
 
           <div className="row offset-md-1 mb-3">
@@ -206,7 +205,8 @@ export default class NewIdea extends React.Component {
           <div className="row offset-md-1  mb-1 text-right">
             <div className="col-md-3" />
             <div className="col-md-5 offset-md-2">
-              <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>נושא ההודעה</label>
+              <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>קורות חיים</label>
+              <h6>          (רקע אקדמי ו/או נסיון תעסוקתי)</h6>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -231,7 +231,7 @@ export default class NewIdea extends React.Component {
 
           <div className="row offset-md-1 mb-3">
             <div className="col-md-10 mb-3 text-right">
-              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>תוכן ההודעה</label>
+              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>בעיה או רעיון</label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">

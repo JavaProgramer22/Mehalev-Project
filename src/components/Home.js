@@ -10,9 +10,9 @@ export default class Home extends React.Component {
     return (
       <>
         <Container>
-          <Row className="justify-content-center">
+          {/* <Row className="justify-content-center">
             <h1>Home</h1>
-          </Row>
+          </Row> */}
           <div dir="rtl">
             <Row>
               <h2 style={{ color: "#003366", fontSize: "18pt" }}>אודות</h2>
