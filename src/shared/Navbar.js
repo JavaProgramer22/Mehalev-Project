@@ -68,21 +68,21 @@ export default class Navbar extends React.Component {
         name: "משתמשים",
         role: ["admin"]
       },
-      
+
       {
         icon: faUserLock,
         path: "/roles",
         name: "תפקידים והרשאות",
         role: ["admin"]
       },
-     
+
       {
         icon: faCog,
         path: "/settings/add/roles",
         name: "הגדרות",
         role: ["admin"]
       },
-     
+
       {
         icon: faStar,
         path: "/my-skills/0",
@@ -158,7 +158,7 @@ export default class Navbar extends React.Component {
               <span aria-hidden="true">&times;</span>
             </button>
 
-            <ul textAlign="center" className="list-group list-group-flush mt-4">
+            <ul textalign="center" className="list-group list-group-flush mt-4">
               {(() => {
                 // let role = this.context.data.authValues.role;
                 // const roleName = role?role.name:''
