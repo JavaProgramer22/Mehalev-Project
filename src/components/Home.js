@@ -1,18 +1,16 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 // import { Link } from "react-router-dom";
-
+import SignIn from "../components/SignIn";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { signOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default class Home extends React.Component {
   render() {
+    
     return (
       <>
         <Container>
-          {/* <Row className="justify-content-center">
-            <h1>Home</h1>
-          </Row> */}
           <div dir="rtl">
             <Row>
               <h2 style={{ color: "#003366", fontSize: "18pt" }}>אודות</h2>
@@ -68,7 +66,6 @@ export default class Home extends React.Component {
               </Row>
           </div>
         </Container>
-
       </>
     );
   }

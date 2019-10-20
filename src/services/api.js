@@ -1,4 +1,12 @@
 import react from "react";
+const Ideas = [
+  {
+    id: 1,
+    number: 112,
+    title: "לא לראות וליפול",
+    about:
+      "בדרך כלל זה לא קל להיות עיוור, אבל ניתן להשתמש במקל וזה ידוע, מה עם כל הנפילות שנגרמות בגלל המיקל?, אז לפתור את העיה נראה לי כדאי לייצר קופסא שהינה אחראית כגון עבודת המקל."
+  }];
 const Projects = [
   {
     id: 1,
@@ -197,6 +205,9 @@ class Api {
   getCategories(){
     return Categories;
   }
+  getIdeas(){
+    return Ideas;
+  }
   getProjectsByID(projectID) {
     Projects.filter(project => {
       return project.id == projectID;
@@ -209,6 +220,15 @@ class Api {
   getCategoriesByID(categoryID) {
     Categories.filter(category => {
       return category.id == categoryID;
+      // if (project.id == projectID) {
+      //   // console.log(project)
+      //   return project;
+      // }
+    });
+  }
+  getIdeasByID(ideaID) {
+    Projects.filter(idea => {
+      return idea.id == ideaID;
       // if (project.id == projectID) {
       //   // console.log(project)
       //   return project;
