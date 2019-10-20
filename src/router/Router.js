@@ -10,6 +10,8 @@ import Project from '../components/Project';
 import ScrollButton from '../shared/ScrollTopButton';
 import ContactUs from '../components/ContactUs';
 import NewIdea from '../components/NewIdea';
+import Category from '../components/Category';
+import SearchByCategory from '../components/SearchByCategory';
 
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
@@ -49,6 +51,8 @@ export default () => (
         <Route path="/project/:id" component={Project} />
         <Route path="/contactus" component={ContactUs} />
         <Route path="/newidea" component={NewIdea} />
+        <Route path="/category" component={SearchByCategory} />
+        <Route path="/category/:id" component={Category} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />

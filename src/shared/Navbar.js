@@ -41,51 +41,48 @@ export default class Navbar extends React.Component {
       {
         icon: faHome,
         path: "/",
-        name: "Home",
+        name: "דף הבית",
         role: ["admin", "manager", "employee"]
       },
       {
-        icon: faUserCircle,
-        path: "/users-list",
-        name: "Users",
-        role: ["admin"]
-      },
-      {
         icon: faClipboardList,
-        path: "/audit",
-        name: "Audit",
-        role: ["admin"]
-      },
-      {
-        icon: faUserLock,
-        path: "/roles",
-        name: "Roles",
-        role: ["admin"]
-      },
-      {
-        icon: faArchive,
         path: "/projects",
         name: "פרויקטים",
         role: ["admin"]
       },
       {
-        icon: faCog,
-        path: "/settings/add/roles",
-        name: "Settings",
+        icon: faArchive,
+        path: "/ideas",
+        name: "רעיונות",
         role: ["admin"]
-      },
-      {
-        icon: faLightbulb,
-        path: "/projects",
-        name: "My Projects",
-        role: ["manager"]
       },
       {
         icon: faLightbulb,
         path: "/newidea",
-        name: "NewIdea",
+        name: "רעיון חדש",
         role: ["admin"]
       },
+      {
+        icon: faUserCircle,
+        path: "/users-list",
+        name: "משתמשים",
+        role: ["admin"]
+      },
+      
+      {
+        icon: faUserLock,
+        path: "/roles",
+        name: "תפקידים והרשאות",
+        role: ["admin"]
+      },
+     
+      {
+        icon: faCog,
+        path: "/settings/add/roles",
+        name: "הגדרות",
+        role: ["admin"]
+      },
+     
       {
         icon: faStar,
         path: "/my-skills/0",
@@ -120,7 +117,7 @@ export default class Navbar extends React.Component {
       {
         icon: faPaperPlane,
         path: "/contactus/",
-        name: "Contact Us",
+        name: "צור קשר",
         role: ["admin"]
       }
     ];
@@ -161,7 +158,7 @@ export default class Navbar extends React.Component {
               <span aria-hidden="true">&times;</span>
             </button>
 
-            <ul className="list-group list-group-flush mt-4">
+            <ul textAlign="center" className="list-group list-group-flush mt-4">
               {(() => {
                 // let role = this.context.data.authValues.role;
                 // const roleName = role?role.name:''

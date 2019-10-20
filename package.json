@@ -25,6 +25,8 @@
     "@fortawesome/react-fontawesome": "^0.1.5",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "downshift": "^3.3.5",
+    "mdbreact": "^4.21.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-asset-copier": "^1.0.0",
     "prop-types": "^15.7.2",
