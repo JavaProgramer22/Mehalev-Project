@@ -6,7 +6,7 @@ import {
   faCity,
   faEnvelope,
   faUniversity,
-  faEdit
+  faEdit,faIdCard
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import InputErrors from "./InputErrors";
@@ -103,7 +103,7 @@ export default class NewIdea extends React.Component {
   render() {
     return (
       <Container style={{marginBottom:"100px" }}>
-        <h4 className="alert-heading text-center">צור קשר</h4>
+        <h4 className="alert-heading text-center" style={{textAlign:"right"}}>פנייה להצעת רעיון חדש</h4>
         <hr></hr>
         <form onSubmit={this.submit}>
           <div className="row offset-md-1  mb-1 text-right">
@@ -181,17 +181,18 @@ export default class NewIdea extends React.Component {
 
           <div className="row offset-md-1 mb-3">
             <div className="col-md-10 mb-3 text-right">
-              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>תוכן ההודעה</label>
+            <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>קורות חיים</label>
+              <h6>          (רקע אקדמי ו/או נסיון תעסוקתי)</h6>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
-                    <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faIdCard}></FontAwesomeIcon>
                   </span>
                 </div>
                 <textarea
                   style={{height:"150px"}}
                   className="form-control text-right"
-                  placeholder="הודעה"
+                  placeholder="נא לרשום כמה מלים עבורך"
                   aria-label="With textarea"
                   id="message"
                   name="message"
@@ -205,8 +206,7 @@ export default class NewIdea extends React.Component {
           <div className="row offset-md-1  mb-1 text-right">
             <div className="col-md-3" />
             <div className="col-md-5 offset-md-2">
-              <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>קורות חיים</label>
-              <h6>          (רקע אקדמי ו/או נסיון תעסוקתי)</h6>
+              <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>נושא הפנייה </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -216,7 +216,7 @@ export default class NewIdea extends React.Component {
                 <input
                   type="text"
                   className="form-control text-right"
-                  placeholder="נושא ההודעה"
+                  placeholder="נושא הפנייה"
                   aria-label="Topic"
                   aria-describedby="basic-addon1"
                   id="topic"
@@ -231,7 +231,7 @@ export default class NewIdea extends React.Component {
 
           <div className="row offset-md-1 mb-3">
             <div className="col-md-10 mb-3 text-right">
-              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>בעיה או רעיון</label>
+              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>תוכן הפנייה </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -241,7 +241,7 @@ export default class NewIdea extends React.Component {
                 <textarea
                   style={{height:"150px"}}
                   className="form-control text-right"
-                  placeholder="הודעה"
+                  placeholder="נא לתאר את הבעיה שעבורה כדאי לתפור מוצר חדש"
                   aria-label="With textarea"
                   id="message"
                   name="message"

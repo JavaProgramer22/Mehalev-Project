@@ -16,11 +16,17 @@ class Category extends Component {
     // console.log(projectData);
     // this.setState({ projectData });
   }
+  sortProjects(){
+      
+  }
   render() {
     return (
-      <Container style={{ marginBottom: "150px" }} className="mt-5">
-        <Row className="justify-content-center">
-          <Card
+      <Container style={{ marginBottom: "150px" }}>
+        <Row className="justify-content-start" dir="rtl">
+          <h1>{this.state.categoryData.title}</h1>
+        </Row>
+        <Row className="justify-content-start"></Row>
+        {/* <Card
             dir="rtl"
             style={{ textAlign: "right" }}
             className="mr-2 ml-2 mb-2 mt-2"
@@ -34,7 +40,7 @@ class Category extends Component {
             </Card.Body>
           </Card>
         </Row>
-        <Row></Row>
+        <Row></Row> */}
       </Container>
     );
   }

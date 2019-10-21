@@ -10,9 +10,11 @@ import Project from "../components/Project";
 import ScrollButton from "../shared/ScrollTopButton";
 import ContactUs from "../components/ContactUs";
 import NewIdea from "../components/NewIdea";
+import IdeasBank from "../components/IdeasBank";
 import Category from "../components/Category";
 import SearchByCategory from "../components/SearchByCategory";
-
+import SignIn from "../components/SignIn";
+import PendingIdeas from "../components/PendingIdeas";
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
@@ -53,6 +55,10 @@ export default () => (
         <Route path="/newidea" component={NewIdea} />
         <Route path="/category/:id" component={Category} />
         <Route path="/category" component={SearchByCategory} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/ideas" component={IdeasBank} />
+        <Route path="/pendingideas" component={PendingIdeas} />
+
 
         <Route component={PageNotFound} />
       </Switch>
