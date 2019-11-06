@@ -39,55 +39,47 @@ export default class IdeasBank extends React.Component {
     return (
       <Container>
         <Row dir="rtl" className="justify-content-start">
-          <h4 style={{ textAlign: "right" }}>
-            רעיונות חדשים לפרויקטים
-          </h4>
+          <h4 style={{ textAlign: "right" }}>רעיונות חדשים לפרויקטים</h4>
         </Row>
-        
-        
-               <Row
+
+        <Row
           className="mt-2 ml-5 mr-5  justify-content-center"
           style={{ marginBottom: "100px" }}
         >
           {this.state.Ideas.map((idea, i) => {
             return (
-                <div class="w3-card-4 w3-dark-grey">
-
-<Container>
-  <Card
-                dir="rtl"
-                key={i}
-                // style={{ width: "18rem", marginTop: "20px" }}
-                style={{ textAlign: "right" }}
-                className="mr-2 ml-2 mb-2 mt-2"
-              >
-                <Card.Header as="h5">{idea.title}</Card.Header>
-
-                <Card.Body>
-                  <Row className="justify-content-start">
-                    <Col>
-                      <Card.Text>{idea.about}</Card.Text>
-                    </Col>
-                  </Row>
-                  <button className="btn btn-success w-25 ml-3">קבל
-            </button>
-                      <button className="btn btn-danger w-25 ml-3">דחה</button>
-                      
-                  <Link
-                    to={`/newidea/${idea.id}`}
-                    onClick={e => this.setIdeaInSession(idea)}
+              <div class="w3-card-4 w3-dark-grey">
+                <Container>
+                  <Card
+                    dir="rtl"
+                    key={i}
+                    // style={{ width: "18rem", marginTop: "20px" }}
+                    style={{ textAlign: "right" }}
+                    className="mr-2 ml-2 mb-2 mt-2"
                   >
-                              
-                      <button className="btn btn-secondary w-25  ml-3">ערוך</button>                  
+                    <Card.Header as="h5">{idea.title}</Card.Header>
 
-                  </Link>
-                </Card.Body>
-              </Card>
-  
-</Container>
+                    <Card.Body>
+                      <Row className="justify-content-start">
+                        <Col>
+                          <Card.Text>{idea.about}</Card.Text>
+                        </Col>
+                      </Row>
+                      <button className="btn btn-success w-25 ml-3">קבל</button>
+                      <button className="btn btn-danger w-25 ml-3">דחה</button>
 
-</div>
-            
+                      <Link
+                        to={`/newidea/${idea.id}`}
+                        onClick={e => this.setIdeaInSession(idea)}
+                      >
+                        <button className="btn btn-secondary w-25  ml-3">
+                          ערוך
+                        </button>
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </Container>
+              </div>
             );
           })}
         </Row>
