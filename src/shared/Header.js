@@ -12,12 +12,12 @@ export default class Header extends React.Component {
         <Row className="m-2">
           <Col md={2} className="d-flex justify-content-start">
             <Link to="/">
-              <img src="loading.png" className="" style={{ height: "100px" }} />
+              <img src="../loading.png" className="" style={{ height: "100px" }} />
             </Link>
           </Col>
           <Col md={8} className="d-flex justify-content-center">
             <Link to="/">
-              <img src="mehalev.png" className="" style={{ height: "100px" }} />
+              <img src="../mehalev.png" className="" style={{ height: "100px" }} />
             </Link>
           </Col>
         </Row>
