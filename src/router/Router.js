@@ -14,6 +14,7 @@ import IdeasBank from "../components/IdeasBank";
 import Category from "../components/Category";
 import SearchByCategory from "../components/SearchByCategory";
 import SignIn from "../components/SignIn";
+import AddProject from "../components/AddProject";
 import PendingIdeas from "../components/PendingIdeas";
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
@@ -57,8 +58,8 @@ export default () => (
         <Route path="/category" component={SearchByCategory} />
         <Route path="/signin" component={SignIn} />
         <Route path="/ideas" component={IdeasBank} />
+        <Route path="/addproject" component={AddProject} />
         <Route path="/pendingideas" component={PendingIdeas} />
-
 
         <Route component={PageNotFound} />
       </Switch>

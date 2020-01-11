@@ -17,7 +17,7 @@ class Project extends Component {
   }
   render() {
     return (
-      <Container style={{marginBottom:"150px"}} className="mt-5">
+      <Container style={{ marginBottom: "150px" }} className="mt-5">
         <Row className="justify-content-center">
           <Card
             dir="rtl"
@@ -50,9 +50,7 @@ class Project extends Component {
             </Card.Body>
           </Card>
         </Row>
-        <Row>
-            
-        </Row>
+        <Row></Row>
       </Container>
     );
   }
