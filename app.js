@@ -2,10 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // import AppRouter from "./src/router/Router";
-
 // ReactDOM.render(<AppRouter />, document.querySelector("#container"));
 import AppRouter from "./src/router/Router";
-import Loading from "./loading";
+// import Loading from "./loading";git 
 class App extends React.Component {
   constructor() {
     super();

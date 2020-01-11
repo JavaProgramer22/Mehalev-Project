@@ -45,6 +45,12 @@ export default class Navbar extends React.Component {
         role: ["admin", "manager", "employee"]
       },
       {
+        icon: faPlus,
+        path: "/addproject",
+        name: "הוספת פרויקט",
+        role: ["admin", "manager"]
+      },
+      {
         icon: faClipboardList,
         path: "/projects",
         name: "פרויקטים",
@@ -124,7 +130,7 @@ export default class Navbar extends React.Component {
         icon: faPaperPlane,
         path: "/contactus/",
         name: "צור קשר",
-        role: ["manager","admin"]
+        role: ["manager", "admin"]
       }
     ];
     this.toggleNavbar = this.toggleNavbar.bind(this);
