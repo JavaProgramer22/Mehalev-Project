@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import InputErrors from "./InputErrors";
+import FileUpload from "./fileUpload";
 // import { toast } from "react-toastify";
 // import SkillColor from "./SkillColor";
 // import Api from "./Api";
@@ -25,13 +26,13 @@ class AddProject extends React.Component {
         value: "",
         name: "synopsis",
         errors: [],
-        validations: { required: true }
+        validations: { required: true, minLength: 2 }
       },
       description: {
         value: "",
         name: "description",
         errors: [],
-        validations: { required: true }
+        validations: { required: true, minLength: 2 }
       },
       date: {
         value: "",
@@ -39,30 +40,70 @@ class AddProject extends React.Component {
         errors: [],
         validations: { required: true }
       },
-      skillType: {
-        value: "0",
-        name: "skillType",
+      superVisor: {
+        value: "",
+        name: "superVisor",
         errors: [],
         validations: { required: true }
       },
-      level: {
+      firstStudent: {
         value: "",
         errors: [],
-        name: "level",
+        name: "firstStudent",
         validations: { required: true }
       },
-      skill: {
+      secondStudent: {
         value: "",
         errors: [],
-        name: "skill",
+        name: "secondStudent",
         validations: { required: true }
-      }, //chose skill
-      skills: { type: "", skills: [] },
-      requiredSkills: []
+      },
+      category: {
+        value: "",
+        errors: [],
+        name: "category",
+        validations: { required: true }
+      },
+      // contain: [Image, Video, PDF, PowerPoint, Matlab, SolidWork],
+      image: {
+        value: [],
+        errors: [],
+        name: "Image",
+        validations: { required: true }
+      },
+      video: {
+        value: [],
+        errors: [],
+        name: "Video",
+        validations: { required: true }
+      },
+      pdf: {
+        value: [],
+        errors: [],
+        name: "PDF",
+        validations: { required: true }
+      },
+      powerPoint: {
+        value: [],
+        errors: [],
+        name: "Power Point",
+        validations: { required: true }
+      },
+      matlab: {
+        value: [],
+        errors: [],
+        name: "Matlab",
+        validations: { required: true }
+      },
+      solidWork: {
+        value: [],
+        errors: [],
+        name: "Solid Work",
+        validations: { required: true }
+      }
     };
 
-    this.skills = {};
-
+    // this.skills = {};
     // this.selectSkillType = this.selectSkillType.bind(this);
     // this.inputChange = this.inputChange.bind(this);
     // this.submit = this.submit.bind(this);
@@ -70,20 +111,20 @@ class AddProject extends React.Component {
     // this.removeSkill = this.removeSkill.bind(this);
     // this.selectSkillLevel = this.selectSkillLevel.bind(this);
   }
-
-  //   async componentDidMount() {
-  //     const skills = await Api.getSkills();
-  //     this.skills = {
-  //       technicals: skills.technicalSkills.map(skill => ({
-  //         id: skill.skillId,
-  //         name: skill.skillName
-  //       })),
-  //       product: skills.productSkills.map(skill => ({
-  //         id: skill.skillId,
-  //         name: skill.skillName
-  //       }))
-  //     };
-  //   }
+  // async
+  // componentDidMount() {
+  //   const skills = await Api.getSkills();
+  //   this.skills = {
+  //     technicals: skills.technicalSkills.map(skill => ({
+  //       id: skill.skillId,
+  //       name: skill.skillName
+  //     })),
+  //     product: skills.productSkills.map(skill => ({
+  //       id: skill.skillId,
+  //       name: skill.skillName
+  //     }))
+  //   };
+  // }
 
   //   addskill(e) {
   //     e.preventDefault();
@@ -135,121 +176,115 @@ class AddProject extends React.Component {
   //     this.setState({ level: { ...this.state.level, value: skillLevel } });
   //   }
 
-  //   inputChange({ target: { name, value } }) {
-  //     const { validations } = this.state[name];
-  //     const errors = [];
+  inputChange({ target: { name, value } }) {
+    // const { validations } = this.state[name];
+    // const errors = [];
 
-  //     if (!validations) return;
+    // if (!validations) return;
 
-  //     if (validations.required) {
-  //       if (!value) {
-  //         errors.push(`${name} is required`);
-  //       }
-  //     }
+    // if (validations.required) {
+    //   if (!value) {
+    //     errors.push(`${name} is required`);
+    //   }
+    // }
+    // this.setState({
+    //   [name]: {
+    //     ...this.state[name],
+    //     value: value,
+    //     errors
+    //   }
+    // });
+    console.log(value);
+  }
+  // async
+  submit(e) {
+    e.preventDefault();
+    // console.log("h");
+    console.log(this.state.projectname.value);
+    //     this.inputChange({
+    //       target: {
+    //         name: this.state.projectname.name,
+    //         value: this.state.projectname.value
+    //       }
+    //     });
+    //     this.inputChange({
+    //       target: { name: this.state.date.name, value: this.state.date.value }
+    //     });
+    //     this.inputChange({
+    //       target: {
+    //         name: this.state.description.name,
+    //         value: this.state.description.value
+    //       }
+    //     });
+    //     this.inputChange({
+    //       target: { name: this.state.skill.name, value: this.state.skill.value }
+    //     });
+    //     this.inputChange({
+    //       target: { name: this.state.level.name, value: this.state.level.value }
+    //     });
+    // if(this.state.requiredSkills.length===0){
+    //   return;
+    // }
+    //     if (!this.state.projectname.value) {
+    // toast.error("No Project Name Provided ");
+    //       return;
+    //     }
 
-  // if (validations.minLength) {
-  //   if (value.length < validations.minLength) {
-  //     errors.push(
-  //       `${name} should be at least ${validations.minLength} characters`
-  //     );
-  //   }
-  // }
-  //     this.setState({
-  //       [name]: {
-  //         ...this.state[name],
-  //         value: value,
-  //         errors
-  //       }
-  //     });
-  //   }
+    //     if (!this.state.date.value) {
+    // toast.error("Choose Start Date ");
+    //       return;
+    //     }
 
-  //   async submit(e) {
-  //     e.preventDefault();
+    //     if (!this.state.description.value) {
+    // toast.error("No Description Provided ");
+    //       return;
+    //     }
 
-  //     this.inputChange({
-  //       target: {
-  //         name: this.state.projectname.name,
-  //         value: this.state.projectname.value
-  //       }
-  //     });
-  //     this.inputChange({
-  //       target: { name: this.state.date.name, value: this.state.date.value }
-  //     });
-  //     this.inputChange({
-  //       target: {
-  //         name: this.state.description.name,
-  //         value: this.state.description.value
-  //       }
-  //     });
-  //     this.inputChange({
-  //       target: { name: this.state.skill.name, value: this.state.skill.value }
-  //     });
-  //     this.inputChange({
-  //       target: { name: this.state.level.name, value: this.state.level.value }
-  //     });
-  // if(this.state.requiredSkills.length===0){
-  //   return;
-  // }
-  //     if (!this.state.projectname.value) {
-  // toast.error("No Project Name Provided ");
-  //       return;
-  //     }
+    //     if (this.state.requiredSkills.length === 0) {
+    // toast.error("No Skills Selected");
+    //       return;
+    //     }
 
-  //     if (!this.state.date.value) {
-  // toast.error("Choose Start Date ");
-  //       return;
-  //     }
+    //     if (!this.state.skill.value) {
+    // toast.error("Choose Skill");
+    //       return;
+    //     }
 
-  //     if (!this.state.description.value) {
-  // toast.error("No Description Provided ");
-  //       return;
-  //     }
-
-  //     if (this.state.requiredSkills.length === 0) {
-  // toast.error("No Skills Selected");
-  //       return;
-  //     }
-
-  //     if (!this.state.skill.value) {
-  // toast.error("Choose Skill");
-  //       return;
-  //     }
-
-  //     if (!this.state.level.value) {
-  // toast.error("Choose Skill Level");
-  //       return;
-  //     }
-  //     let index = 0;
-  //     const values = {
-  //       name: this.state.projectname.value,
-  //       description: this.state.description.value,
-  //       startDate: this.state.date.value,
-  //       technicalSkill: this.state.requiredSkills
-  //         .filter(skill => skill.type == "t")
-  //         .map(skill => ({
-  //           id: skill.skillr.id,
-  //           name: skill.skillr.name,
-  //           level: skill.level
-  //         })),
-  //       productSkill: this.state.requiredSkills
-  //         .filter(skill => skill.type == "p")
-  //         .map(skill => ({
-  //           id: skill.skillr.id,
-  //           name: skill.skillr.name,
-  //           level: skill.level
-  //         }))
-  //     };
-  //     try {
-  //       const projectResponse = await Api.addNewProject(values);
-  //       if (projectResponse.status === 200) {
-  //         toast.success("Project Added Successfully");
-  //       }
-  //     } catch (error) {
-  //       if (error.response.data.status == "BAD_REQUEST") {
-  //         toast.error("Project Name Already Exists,Name Should Be Unique");
-  //       }
-  //     }
-  //   }
+    //     if (!this.state.level.value) {
+    // toast.error("Choose Skill Level");
+    //       return;
+    //     }
+    //     let index = 0;
+    //     const values = {
+    //       name: this.state.projectname.value,
+    //       description: this.state.description.value,
+    //       startDate: this.state.date.value,
+    //       technicalSkill: this.state.requiredSkills
+    //         .filter(skill => skill.type == "t")
+    //         .map(skill => ({
+    //           id: skill.skillr.id,
+    //           name: skill.skillr.name,
+    //           level: skill.level
+    //         })),
+    //       productSkill: this.state.requiredSkills
+    //         .filter(skill => skill.type == "p")
+    //         .map(skill => ({
+    //           id: skill.skillr.id,
+    //           name: skill.skillr.name,
+    //           level: skill.level
+    //         }))
+    //     };
+    //     try {
+    //       const projectResponse = await Api.addNewProject(values);
+    //       if (projectResponse.status === 200) {
+    //         toast.success("Project Added Successfully");
+    //       }
+    //     } catch (error) {
+    //       if (error.response.data.status == "BAD_REQUEST") {
+    //         toast.error("Project Name Already Exists,Name Should Be Unique");
+    //       }
+    //     }
+  }
 
   render() {
     return (
@@ -265,7 +300,7 @@ class AddProject extends React.Component {
               <form onSubmit={this.submit}>
                 <div className="row">
                   <div className="col-md-6">
-                    <label htmlFor="projectName">
+                    <label>
                       <h6>Project Name</h6>
                     </label>
                     <div className="input-group">
@@ -280,7 +315,7 @@ class AddProject extends React.Component {
                         placeholder="Project name"
                         aria-label="Projectname"
                         aria-describedby="basic-addon1"
-                        id="ProjectnameID"
+                        id="projectname"
                         name="projectname"
                         defaultValue={this.state.projectname.value}
                         onBlur={this.inputChange}
@@ -330,12 +365,11 @@ class AddProject extends React.Component {
                         placeholder="Synopsis"
                         aria-label="Synopsis"
                         aria-describedby="basic-addon1"
-                        id="projectSynopsisID"
-                        name="Synopsis"
-                        // defaultValue={this.state.Synopsis.value}
+                        id="synopsis"
+                        name="synopsis"
+                        defaultValue={this.state.synopsis.value}
                         onBlur={this.inputChange}
                         rows="2"
-                        style={{}}
                       ></textarea>
                     </div>
                     <InputErrors errors={this.state.description.errors} />
@@ -358,30 +392,28 @@ class AddProject extends React.Component {
                         placeholder="Description"
                         aria-label="Description"
                         aria-describedby="basic-addon1"
-                        id="projectDescriptionID"
+                        id="description"
                         name="description"
                         defaultValue={this.state.description.value}
                         onBlur={this.inputChange}
                         rows="4"
-                        style={{}}
                       ></textarea>
                     </div>
                     <InputErrors errors={this.state.description.errors} />
                   </div>
                 </div>
-
                 <h6 className="mt-4 mb-0 ">Users For Project</h6>
                 <hr></hr>
                 <div className="row">
                   <div className="col">
                     <div className="form-group ">
-                      <label htmlFor="superVisor">
-                        <h6>SuperVisor</h6>
+                      <label htmlFor="supervisor">
+                        <h6>Supervisor</h6>
                       </label>
                       <input
                         type="text"
                         class="form-control mb-1"
-                        placeholder="Search For SuperVisor Name"
+                        placeholder="Search For Supervisor Name"
                       />
                       <select
                         className="form-control mt-1"
@@ -441,300 +473,61 @@ class AddProject extends React.Component {
                       </select>
                     </div>
                   </div>
+                  <div className="col">
+                    {" "}
+                    <div className="form-group ">
+                      <label htmlFor="superVisor">
+                        <h6>Project Category </h6>
+                      </label>
+                      <select
+                        className="form-control mt-1"
+                        id="category"
+                        name="category"
+                        // defaultValue={this.state.skillType.value}
+                        // onBlur={this.inputChange}
+                        // onChange={this.selectSkillType}
+                      >
+                        <option value="0">Select</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
                 <h4 className="mt-4 mb-0 ">Project Files </h4>
                 <hr></hr>
                 <div className="row">
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="image">
-                        <h6>Image</h6>
-                      </label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="image"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Choose file
-                        </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline2"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="Image" groupID="1" />
                   </div>
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="Video">
-                        <h6>Video</h6>
-                      </label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="Video"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Choose file
-                        </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline3"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline4"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="Video" groupID="2" />
                   </div>
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="Pdf">
-                        <h6>Pdf</h6>
-                      </label>
-                      <div className="custom-file">
-                        <input
-                          type="file"
-                          name="Pdf"
-                          className="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label
-                          className="custom-file-label"
-                          for="inputGroupFile01"
-                        >
-                          Choose file
-                        </label>
-                        <div className="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            className="custom-control-input"
-                          />
-                          <label
-                            className="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline2"
-                            name="customRadioInline1"
-                            className="custom-control-input"
-                          />
-                          <label
-                            className="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="PDF" groupID="3" />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="Power Point">
-                        <h6>Power Point</h6>
-                      </label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="Power Point"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Choose file
-                        </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline2"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="Power Point" groupID="4" />
                   </div>
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="Matlab">
-                        <h6>Matlab</h6>
-                      </label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="Matlab"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Choose file
-                        </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline2"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="Matlab" groupID="5" />
                   </div>
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="Solid Work">
-                        <h6>Solid Work</h6>
-                      </label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="Solid Work"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Choose Pdf
-                        </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline1"
-                          >
-                            Show To Public
-                          </label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                          <input
-                            type="radio"
-                            id="customRadioInline2"
-                            name="customRadioInline1"
-                            class="custom-control-input"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customRadioInline2"
-                          >
-                            <b>Don`t</b> Show To Public
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    <FileUpload name="Solid Work" groupID="6" />
                   </div>
                 </div>
 
                 {/* <div className="row">
+                  {this.state.files.contain.map((file, i) => (
+                    <div className="col-4">
+                      <FileUpload name={file} groupID={i} key={i} />
+                    </div>
+                  ))}
+                </div>
+                {/* {this.state.files.contain.map((file, i) =>
+                  console.log(file.value)
+                )} 
+                <div className="row">
                   <div className="col-md-12">
                     <h6>Selected Skills</h6>
                   </div>
@@ -760,14 +553,17 @@ class AddProject extends React.Component {
                     </div>
                   )}
                 </div> */}
-                <div className="col-md-12 mt-1">
-                  <button
-                    type="submit"
-                    className="btn btn-info btn-block"
-                    onClick={this.submit}
-                  >
-                    Submit
-                  </button>
+                <div className="row justify-content-center mt-3 mb-3">
+                  <div className="col-6">
+                    {" "}
+                    <button
+                      type="submit"
+                      className="btn btn-info btn-block"
+                      onClick={this.submit}
+                    >
+                      Submit
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
