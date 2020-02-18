@@ -6,16 +6,16 @@ const Ideas = [
     title: "לא לראות וליפול",
     about:
       "בדרך כלל זה לא קל להיות עיוור, אבל ניתן להשתמש במקל וזה ידוע, מה עם כל הנפילות שנגרמות בגלל המיקל?, אז לפתור את העיה נראה לי כדאי לייצר קופסא שהינה אחראית כגון עבודת המקל."
-  }];
+  }
+];
 const Projects = [
   {
     id: 1,
     number: 112,
-    title: "הבימבה של יונתן",
-    author: "אלעד קורטק",
-    supervisor: "ד”ר אורית בראון בנימין",
-    about:
-      "במסגרת לימודיו בקורס “ביומכניקה שיקומית” שמרכזת ד”ר אורית בראון-בנימין, הכין הסטודנט (כיום בוגר) אלעד קורטק פרוייקט יוצא דופן: מכונית בימבה עבור יונתן – ילד בן 12 מחיפה, בעל צרכים מיוחדים. הביימבה יצאה לאור הודות לעזרתו הגדולה של מולי גרינשטיין, הבעלים של נגריית “פשוט” מתובל, שסייע מזמנו ומכשרונו להשלמת הפרויקט. הסרטון הבא מספר על המפגש המרגש, שבו אלעד מביא ליונתן את הבימבה, כולל נסיעת מבחן ראשונה ומוצלחת.",
+    title: "Saheer&Jeries",
+    author: "Jeries Zamel & Saheer Jacob",
+    supervisor: "ד”ר אורנה מילר",
+    about: "Projects for people with speical needs",
     youtubeUrl: "https://www.youtube.com/embed/6r7-oD5CMlM"
   },
   {
@@ -171,41 +171,62 @@ const Categories = [
     id: 1,
     number: 112,
     title: "חיפוש פרויקטים לפי תחומים",
-    imgSrc:"byFaculty.png"
+    imgSrc: "byFaculty.png"
   },
   {
     id: 2,
     number: 112,
     title: 'חיפוש פרויקטים לפי א"ב',
-    imgSrc:"byABC.png"
+    imgSrc: "byABC.png"
   },
   {
     id: 3,
     number: 112,
     title: "פרויקטים מומלצים",
-    imgSrc:"recommended.png"
+    imgSrc: "recommended.png"
   },
   {
     id: 4,
     number: 112,
     title: "פרויקטים חדשים",
-    imgSrc:"new.png"
+    imgSrc: "new.png"
   },
   {
     id: 5,
     number: 112,
     title: "פרויקטים בתקופת נסיון",
-    imgSrc:"exp.png"
+    imgSrc: "exp.png"
   }
 ];
 class Api {
+  // addNewProject(value) {
+  //   const {
+  //     name,
+  //     description,
+  //     startDate,
+  //     technicalSkill,
+  //     productSkill
+  //   } = value;
+  //   const newProject = await axios.post(
+  //     `${url}projects`,
+  //     {
+  //       name: name,
+  //       description: description,
+  //       startDate: startDate,
+  //       technicalSkill: technicalSkill,
+  //       productSkill: productSkill
+  //     },
+  //     { withCredentials: true }
+  //   );
+  //   return newProject;
+  // }
   getProjects() {
     return Projects;
   }
-  getCategories(){
+  getCategories() {
     return Categories;
   }
-  getIdeas(){
+  getIdeas() {
     return Ideas;
   }
   getProjectsByID(projectID) {

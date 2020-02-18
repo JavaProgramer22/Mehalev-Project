@@ -9,12 +9,15 @@ import {
 
 import InputErrors from "./InputErrors";
 import FileUpload from "./fileUpload";
-// import { toast } from "react-toastify";
+import SelectFiles from "./selectFiles";
+import { toast } from "react-toastify";
+
+// import SelectedUsers from "./SelectUsers";
 // import SkillColor from "./SkillColor";
-// import Api from "./Api";
+//
 class AddProject extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       projectname: {
         name: "projectname",
@@ -102,11 +105,13 @@ class AddProject extends React.Component {
         validations: { required: true }
       }
     };
-
+    this.inputChange = this.inputChange.bind(this);
+    this.submit = this.submit.bind(this);
+    this.handlefile = this.handlefile.bind(this);
     // this.skills = {};
     // this.selectSkillType = this.selectSkillType.bind(this);
     // this.inputChange = this.inputChange.bind(this);
-    // this.submit = this.submit.bind(this);
+
     // this.addskill = this.addskill.bind(this);
     // this.removeSkill = this.removeSkill.bind(this);
     // this.selectSkillLevel = this.selectSkillLevel.bind(this);
@@ -177,115 +182,104 @@ class AddProject extends React.Component {
   //   }
 
   inputChange({ target: { name, value } }) {
-    // const { validations } = this.state[name];
-    // const errors = [];
+    const { validations } = this.state[name];
+    const errors = [];
 
-    // if (!validations) return;
+    if (!validations) return;
 
-    // if (validations.required) {
-    //   if (!value) {
-    //     errors.push(`${name} is required`);
-    //   }
-    // }
-    // this.setState({
-    //   [name]: {
-    //     ...this.state[name],
-    //     value: value,
-    //     errors
-    //   }
-    // });
-    console.log(value);
+    if (validations.required) {
+      if (!value) {
+        errors.push(`${name} is required`);
+      }
+    }
+    if (validations.minLength) {
+      if (value.length < validations.minLength) {
+        errors.push(
+          `${name} should be at least ${validations.minLength} characters`
+        );
+      }
+    }
+    this.setState({
+      [name]: {
+        ...this.state[name],
+        value
+      }
+    });
   }
   // async
   submit(e) {
     e.preventDefault();
-    // console.log("h");
     console.log(this.state.projectname.value);
-    //     this.inputChange({
-    //       target: {
-    //         name: this.state.projectname.name,
-    //         value: this.state.projectname.value
-    //       }
-    //     });
-    //     this.inputChange({
-    //       target: { name: this.state.date.name, value: this.state.date.value }
-    //     });
-    //     this.inputChange({
-    //       target: {
-    //         name: this.state.description.name,
-    //         value: this.state.description.value
-    //       }
-    //     });
-    //     this.inputChange({
-    //       target: { name: this.state.skill.name, value: this.state.skill.value }
-    //     });
-    //     this.inputChange({
-    //       target: { name: this.state.level.name, value: this.state.level.value }
-    //     });
-    // if(this.state.requiredSkills.length===0){
-    //   return;
-    // }
-    //     if (!this.state.projectname.value) {
-    // toast.error("No Project Name Provided ");
-    //       return;
-    //     }
+    console.log(this.state.date.value);
+    console.log(this.state.superVisor.value);
+    console.log(this.state.category.value);
 
-    //     if (!this.state.date.value) {
-    // toast.error("Choose Start Date ");
-    //       return;
-    //     }
+    if (!this.state.projectname.value) {
+      toast.error("No Project Name Provided ");
+      return;
+    }
 
-    //     if (!this.state.description.value) {
-    // toast.error("No Description Provided ");
-    //       return;
-    //     }
+    if (!this.state.date.value) {
+      toast.error("Choose Start Date ");
+      return;
+    }
+    if (!this.state.synopsis.value) {
+      toast.error("No Synopsis Provided ");
+      return;
+    }
+    if (!this.state.description.value) {
+      toast.error("No Description Provided ");
+      return;
+    }
 
-    //     if (this.state.requiredSkills.length === 0) {
-    // toast.error("No Skills Selected");
-    //       return;
-    //     }
+    if (!this.state.firstStudent.value) {
+      toast.error("No First Student Provided ");
+      return;
+    }
+    if (!this.state.secondStudent.value) {
+      toast.error("No Second Student Provided ");
+      return;
+    }
+    if (!this.state.superVisor.value) {
+      toast.error("No Super Visor Provided ");
+      return;
+    }
+    if (!this.state.category.value) {
+      toast.error("No Category Provided ");
+      return;
+    }
 
-    //     if (!this.state.skill.value) {
-    // toast.error("Choose Skill");
-    //       return;
-    //     }
-
-    //     if (!this.state.level.value) {
-    // toast.error("Choose Skill Level");
-    //       return;
-    //     }
-    //     let index = 0;
-    //     const values = {
-    //       name: this.state.projectname.value,
-    //       description: this.state.description.value,
-    //       startDate: this.state.date.value,
-    //       technicalSkill: this.state.requiredSkills
-    //         .filter(skill => skill.type == "t")
-    //         .map(skill => ({
-    //           id: skill.skillr.id,
-    //           name: skill.skillr.name,
-    //           level: skill.level
-    //         })),
-    //       productSkill: this.state.requiredSkills
-    //         .filter(skill => skill.type == "p")
-    //         .map(skill => ({
-    //           id: skill.skillr.id,
-    //           name: skill.skillr.name,
-    //           level: skill.level
-    //         }))
-    //     };
-    //     try {
-    //       const projectResponse = await Api.addNewProject(values);
-    //       if (projectResponse.status === 200) {
-    //         toast.success("Project Added Successfully");
-    //       }
-    //     } catch (error) {
-    //       if (error.response.data.status == "BAD_REQUEST") {
-    //         toast.error("Project Name Already Exists,Name Should Be Unique");
-    //       }
-    //     }
+    // let index = 0;
+    // const values = {
+    //   name: this.state.projectname.value,
+    //   description: this.state.description.value,
+    //   startDate: this.state.date.value,
+    //   technicalSkill: this.state.requiredSkills
+    //     .filter(skill => skill.type == "t")
+    //     .map(skill => ({
+    //       id: skill.skillr.id,
+    //       name: skill.skillr.name,
+    //       level: skill.level
+    //     })),
+    //   productSkill: this.state.requiredSkills
+    //     .filter(skill => skill.type == "p")
+    //     .map(skill => ({
+    //       id: skill.skillr.id,
+    //       name: skill.skillr.name,
+    //       level: skill.level
+    //     }))
+    // };
+    try {
+      setTimeout(() => {
+        toast.success("Project Added Successfully");
+      }, 1000);
+    } catch (error) {
+      toast.error("Project Name Already Exists,Name Should Be Unique");
+    }
   }
-
+  handlefile(e) {
+    console.log(e.value);
+  }
   render() {
     return (
       <>
@@ -372,7 +366,7 @@ class AddProject extends React.Component {
                         rows="2"
                       ></textarea>
                     </div>
-                    <InputErrors errors={this.state.description.errors} />
+                    <InputErrors errors={this.state.synopsis.errors} />
                   </div>
                 </div>
                 <div className="row mt-2">
@@ -406,28 +400,6 @@ class AddProject extends React.Component {
                 <hr></hr>
                 <div className="row">
                   <div className="col">
-                    <div className="form-group ">
-                      <label htmlFor="supervisor">
-                        <h6>Supervisor</h6>
-                      </label>
-                      <input
-                        type="text"
-                        class="form-control mb-1"
-                        placeholder="Search For Supervisor Name"
-                      />
-                      <select
-                        className="form-control mt-1"
-                        id="superVisor"
-                        name="superVisor"
-                        // defaultValue={this.state.skillType.value}
-                        // onBlur={this.inputChange}
-                        // onChange={this.selectSkillType}
-                      >
-                        <option value="0">Select</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col">
                     {" "}
                     <div className="form-group ">
                       <label htmlFor="Student1">
@@ -436,17 +408,20 @@ class AddProject extends React.Component {
                       <input
                         type="text"
                         className="form-control mb-1"
-                        placeholder="Search For First Student Name"
+                        placeholder="Search First Student Name"
                       />
                       <select
                         className="form-control mt-1"
-                        id="student1"
-                        name="student1"
-                        // defaultValue={this.state.skillType.value}
-                        // onBlur={this.inputChange}
-                        // onChange={this.selectSkillType}
+                        id="firstStudent"
+                        name="firstStudent"
+                        placeholder="Select A Student"
+                        defaultValue={this.state.firstStudent.value}
+                        onBlur={this.inputChange}
                       >
                         <option value="0">Select</option>
+                        <option value="1">Jeries Elias</option>
+                        <option value="2">Jeries Hadad</option>
+                        <option value="3">Jeries Zamel</option>
                       </select>
                     </div>
                   </div>
@@ -459,17 +434,44 @@ class AddProject extends React.Component {
                       <input
                         type="text"
                         class="form-control mb-1"
-                        placeholder="Search For Second Student Name"
+                        placeholder="Search Second Student Name"
                       />
                       <select
                         className="form-control mt-1"
-                        id="student2"
-                        name="student2"
-                        // defaultValue={this.state.skillType.value}
-                        // onBlur={this.inputChange}
-                        // onChange={this.selectSkillType}
+                        id="secondStudent"
+                        name="secondStudent"
+                        placeholder="Select A Student"
+                        // defaultValue={this.state.secondStudent.value}
+                        onBlur={this.inputChange}
                       >
                         <option value="0">Select</option>
+                        <option value="1">Saheer Abed</option>
+                        <option value="2">Saheer Boshnaq</option>
+                        <option value="3">Saheer Jacob</option>
+                        <option value="4">Saheer Masouta</option>
+                      </select>
+                    </div>
+                  </div>
+                  {/* <SelectedUsers /> */}
+                  <div className="col">
+                    <div className="form-group ">
+                      <label htmlFor="supervisor">
+                        <h6>Super Visor</h6>
+                      </label>
+                      <select
+                        className="form-control mt-1"
+                        id="superVisor"
+                        placeholder="Select A Super Visor"
+                        name="superVisor"
+                        defaultValue={this.state.superVisor.value}
+                        onBlur={this.inputChange}
+                      >
+                        <option value="0">Select</option>
+                        <option value="1">אורנית בר-זית</option>
+                        <option value="2">ד“ר אורית בראון</option>
+                        <option value="3">ד”ר אורנה מילר</option>
+                        <option value="4">ד”ר נירית גביש </option>
+                        <option value="5">עופר ג’אן</option>
                       </select>
                     </div>
                   </div>
@@ -483,76 +485,45 @@ class AddProject extends React.Component {
                         className="form-control mt-1"
                         id="category"
                         name="category"
-                        // defaultValue={this.state.skillType.value}
-                        // onBlur={this.inputChange}
-                        // onChange={this.selectSkillType}
+                        placeholder="Select A Category"
+                        defaultValue={this.state.category.value}
+                        onBlur={this.inputChange}
                       >
                         <option value="0">Select</option>
+                        <option value="1">רב תחומי </option>
+                        <option value="2">א"ב</option>
+                        <option value="3">מומלצים</option>
+                        <option value="4">חדשים</option>
+                        <option value="5">בתקופת נסיון</option>
                       </select>
                     </div>
                   </div>
                 </div>
-                <h4 className="mt-4 mb-0 ">Project Files </h4>
+                <h3 className="mt-4 mb-0 ">Project Files </h3>
                 <hr></hr>
-                <div className="row">
-                  <div className="col">
-                    <FileUpload name="Image" groupID="1" />
+                <div className="row justify-content-center">
+                  <div className="col ml-5">
+                    {/* <FileUpload name="Image" groupID="1" /> */}
+                    <h5>Public Files</h5>
+                    <h7>
+                      <b>Required:"Image,Video,PDF"</b>
+                    </h7>
+                    <SelectFiles />
                   </div>
                   <div className="col">
-                    <FileUpload name="Video" groupID="2" />
+                    <h5>Private Files</h5>
+                    <h7>
+                      <b>Optional:"Matlab,Power Point,Solid Work"</b>
+                    </h7>
+                    {/* <FileUpload name="Video" groupID="2" /> */}
+
+                    <SelectFiles />
                   </div>
-                  <div className="col">
+                  {/* <div className="col">
                     <FileUpload name="PDF" groupID="3" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <FileUpload name="Power Point" groupID="4" />
-                  </div>
-                  <div className="col">
-                    <FileUpload name="Matlab" groupID="5" />
-                  </div>
-                  <div className="col">
-                    <FileUpload name="Solid Work" groupID="6" />
-                  </div>
+                  </div> */}
                 </div>
 
-                {/* <div className="row">
-                  {this.state.files.contain.map((file, i) => (
-                    <div className="col-4">
-                      <FileUpload name={file} groupID={i} key={i} />
-                    </div>
-                  ))}
-                </div>
-                {/* {this.state.files.contain.map((file, i) =>
-                  console.log(file.value)
-                )} 
-                <div className="row">
-                  <div className="col-md-12">
-                    <h6>Selected Skills</h6>
-                  </div>
-                  {this.state.requiredSkills.length ? (
-                    this.state.requiredSkills.map((el, index) => {
-                      return (
-                        <div key={index} className="col-md-3">
-                          <SkillColor
-                            key={el.skillr.id}
-                            id={el.skillr.id}
-                            name={el.skillr.name}
-                            level={el.level}
-                            type={el.type}
-                            removeSkill={this.removeSkill}
-                          />
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <div className="col-md-12">
-                      {" "}
-                      <font color="red">No Selected Skills Yet </font>
-                    </div>
-                  )}
-                </div> */}
                 <div className="row justify-content-center mt-3 mb-3">
                   <div className="col-6">
                     {" "}
