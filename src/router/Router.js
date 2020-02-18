@@ -19,8 +19,8 @@ import PendingIdeas from "../components/PendingIdeas";
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
 
-// import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import {DataContext} from '../components/common/Provider/DataProvider'
 
@@ -63,6 +63,7 @@ export default () => (
 
         <Route component={PageNotFound} />
       </Switch>
+      <ToastContainer />
       <Footer />
     </div>
   </BrowserRouter>
