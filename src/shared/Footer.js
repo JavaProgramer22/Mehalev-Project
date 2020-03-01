@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBFooter,
-  MDBBtn,
-  MDBIcon,
-  MDBBadge
-} from "mdbreact";
 
 const FooterPage = () => {
   return (

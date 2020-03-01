@@ -1,10 +1,6 @@
 import React from "react";
 import Api from "../services/api";
 import { Link } from "react-router-dom";
-import pdfImage from "../../src/assets/images/pdf.png";
-import xlsx from "../../src/assets/images/xlsx.png";
-import matlab from "../../src/assets/images/matlab.jpg";
-import pptx from "../../src/assets/images/pptx.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, arrowUp } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -27,16 +23,13 @@ export default class Projects extends React.Component {
   constructor() {
     super();
     this.state = {
-      Projects: [],
-      Files: []
+      Projects: []
     };
     this.setProjectInSession = this.setProjectInSession.bind(this);
   }
   componentDidMount() {
-    const Projects = Api.getnewProjects();
-    const Files = Api.getFiles();
-    this.setState({ Projects, Files });
-    console.log(Files[0].img);
+    const Projects = Api.getSearchProjects();
+    this.setState({ Projects });
   }
   setProjectInSession(project) {
     sessionStorage.clear();
@@ -46,7 +39,9 @@ export default class Projects extends React.Component {
     return (
       <Container>
         <Row className="justify-content-center">
-          <h1 style={{ textAlign: "right" }}>פרויקטים חדשיים</h1>
+          <h1 style={{ textAlign: "right" }}>
+            פרויקטים ועבודות גמר של סטודנטים
+          </h1>
         </Row>
         <Row className="justify-content-center">
           <p dir="rtl" style={{ textAlign: "right" }}>
@@ -66,6 +61,7 @@ export default class Projects extends React.Component {
               <InputGroup.Append>
                 <Button variant="outline-info">חפש</Button>
               </InputGroup.Append>
+
               <FormControl
                 style={{ textAlign: "right" }}
                 placeholder="הקלד מילות חיפוש"
@@ -80,6 +76,51 @@ export default class Projects extends React.Component {
           <Link to={`/category`}> חיפוש מתקדם</Link>
           {/*  to={`/category/${category.id}`}
          onClick={e => this.setCategoryInSession(category)} */}
+        </Row>
+        <Row
+          className="mt-2 ml-5 mr-5  justify-content-center"
+          style={{ marginBottom: "100px" }}
+        >
+          {this.state.Projects.map((project, i) => {
+            return (
+              <Card
+                dir="rtl"
+                key={i}
+                // style={{ width: "18rem", marginTop: "20px" }}
+                style={{ textAlign: "right" }}
+                className="mr-2 ml-2 mb-2 mt-2"
+              >
+                <Card.Header as="h5">{project.title}</Card.Header>
+
+                <Card.Body>
+                  <Row className="justify-content-start">
+                    {/* <Card.Title>{project.title}</Card.Title> */}
+                    <Col md={6}>
+                      <Card.Text>
+                        <strong>מבצעי הפרויקט:</strong> {project.author}
+                      </Card.Text>
+                      <Card.Text>
+                        <strong>מנחה:</strong> {project.supervisor}
+                      </Card.Text>
+                      <Card.Text>{project.about}</Card.Text>
+                    </Col>
+                    <Col md={6}>
+                      <iframe
+                        style={{ width: "27rem", height: "20rem" }}
+                        src={project.youtubeUrl}
+                      ></iframe>
+                    </Col>
+                  </Row>
+                  <Link
+                    to={`/project/${project.id}`}
+                    onClick={e => this.setProjectInSession(project)}
+                  >
+                    <Button variant="primary">קרא עוד</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            );
+          })}
         </Row>
       </Container>
     );

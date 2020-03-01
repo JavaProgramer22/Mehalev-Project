@@ -36,7 +36,6 @@ export default class Projects extends React.Component {
     const Projects = Api.getnewProjects();
     const Files = Api.getFiles();
     this.setState({ Projects, Files });
-    console.log(Files[0].img);
   }
   setProjectInSession(project) {
     sessionStorage.clear();
@@ -64,8 +63,11 @@ export default class Projects extends React.Component {
           <Col md={8}>
             <InputGroup>
               <InputGroup.Append>
-                <Button variant="outline-info">חפש</Button>
+                <Link to="/smartSearch">
+                  <Button variant="outline-info">חפש</Button>
+                </Link>
               </InputGroup.Append>
+
               <FormControl
                 style={{ textAlign: "right" }}
                 placeholder="הקלד מילות חיפוש"
@@ -80,6 +82,79 @@ export default class Projects extends React.Component {
           <Link to={`/category`}> חיפוש מתקדם</Link>
           {/*  to={`/category/${category.id}`}
          onClick={e => this.setCategoryInSession(category)} */}
+        </Row>
+        <Row
+          className="mt-2 ml-5 mr-5  justify-content-center"
+          style={{ marginBottom: "100px" }}
+        >
+          {this.state.Projects.map((project, i) => {
+            return (
+              <Card
+                dir="rtl"
+                key={i}
+                // style={{ width: "18rem", marginTop: "20px" }}
+                style={{ textAlign: "right", width: "1500px" }}
+                className="mr-2 ml-2 mb-2 mt-2"
+              >
+                <Card.Header as="h3">{project.title}</Card.Header>
+
+                <Card.Body>
+                  <Row className="justify-content-start">
+                    {/* <Card.Title>{project.title}</Card.Title> */}
+                    <Col md={6} style={{ fontSize: "22px" }}>
+                      <Card.Text>
+                        <strong>מבצעי הפרויקט:</strong> {project.author}
+                      </Card.Text>
+                      <Card.Text>
+                        <strong>מנחה:</strong> {project.supervisor}
+                      </Card.Text>
+                      <Card.Text>{project.about}</Card.Text>
+                      <p style={{ fontSize: "14px" }}>
+                        <img
+                          src={pdfImage}
+                          style={{ width: "20px", height: "20px" }}
+                        ></img>
+                        <a href="#">Project Book.pdf</a>
+                      </p>
+                      <p style={{ fontSize: "14px" }}>
+                        <img
+                          src={xlsx}
+                          style={{ width: "20px", height: "20px" }}
+                        ></img>
+                        <a href="#">Statistics.xlsx</a>
+                      </p>
+                      <p style={{ fontSize: "14px" }}>
+                        <img
+                          src={pptx}
+                          style={{ width: "20px", height: "20px" }}
+                        ></img>
+                        <a href="#">Final Presentation.pptx</a>
+                      </p>
+                      <p style={{ fontSize: "14px" }}>
+                        <img
+                          src={matlab}
+                          style={{ width: "20px", height: "20px" }}
+                        ></img>
+                        <a href="#">Project Matlab.m</a>
+                      </p>
+                    </Col>
+                    <Col md={6}>
+                      <iframe
+                        style={{ width: "27rem", height: "20rem" }}
+                        src={project.youtubeUrl}
+                      ></iframe>
+                    </Col>
+                  </Row>
+                  <Link
+                    to={`/project/${project.id}`}
+                    onClick={e => this.setProjectInSession(project)}
+                  >
+                    <Button variant="primary">קרא עוד</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            );
+          })}
         </Row>
       </Container>
     );
