@@ -45,30 +45,34 @@ export default class SearchByCategory extends React.Component {
           {this.state.Categories.map((category, i) => {
             return (
               <Link
-              to={`/category/${category.id}`}
-              // to={"/projects"}
-              onClick={e => this.setCategoryInSession(category)}
-            >
-              <Card
-                dir="rtl"
-                key={i}
-                style={{ textAlign: "center", width: "300px", height: "220px" }}
-                className="mr-2 ml-2 mb-2 mt-2"
+                to={`/category/${category.id}`}
+                // to={"/projects"}
+                onClick={e => this.setCategoryInSession(category)}
               >
-               
-                <Card.Header as="h5">{category.title}</Card.Header>
-                <Card.Body>
-                  <Row className="justify-content-center">
-                    <Link
-                      to={`/category/${category.id}`}
-                      // to={"/projects"}
-                      onClick={e => this.setCategoryInSession(category)}
-                    >
-                      <img src={category.imgSrc}></img>
-                    </Link>
-                  </Row>
-                </Card.Body>
-              </Card>
+                <Card
+                  dir="rtl"
+                  key={i}
+                  style={{
+                    textAlign: "center",
+                    width: "300px",
+                    height: "220px"
+                  }}
+                  className="mr-2 ml-2 mb-2 mt-2"
+                >
+                  <Card.Header as="h5">{category.title}</Card.Header>
+                  <Card.Body>
+                    <Row className="justify-content-center">
+                      <Link
+                        to={`/category/${category.id}`}
+                        // to={"/projects"}
+                        onClick={e => this.setCategoryInSession(category)}
+                      ></Link>
+                      <Link to="/newProject">
+                        <img src={category.imgSrc}></img>
+                      </Link>
+                    </Row>
+                  </Card.Body>
+                </Card>
               </Link>
             );
           })}

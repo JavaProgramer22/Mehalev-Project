@@ -42,7 +42,7 @@ export default class Navbar extends React.Component {
         icon: faHome,
         path: "/",
         name: "דף הבית",
-        role: ["admin", "manager", "employee"]
+        role: ["admin", "manager", "student"]
       },
       {
         icon: faPlus,
@@ -93,7 +93,7 @@ export default class Navbar extends React.Component {
         icon: faStar,
         path: "/my-skills/0",
         name: "My Skills",
-        role: ["employee", "manager"]
+        role: ["student", "manager"]
       },
       {
         icon: faListAlt,
@@ -124,7 +124,7 @@ export default class Navbar extends React.Component {
 
         path: "/assign-history/",
         name: "My Assignments",
-        role: ["employee"]
+        role: ["student"]
       },
       {
         icon: faPaperPlane,

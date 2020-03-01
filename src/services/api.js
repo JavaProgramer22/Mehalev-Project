@@ -1,4 +1,20 @@
-import react from "react";
+import axios from "axios";
+
+// const send = async (url, data) => {
+//   try {
+//     const response = await (data
+//       ? axios.post(`http://localhost:8080/api/${url}`, data, {
+//           withCredentials: true
+//         })
+//       : axios.get(`http://localhost:8080/api/${url}`, {
+//           withCredentials: true
+//         }));
+
+//     return response.data;
+//   } catch (err) {
+//     return err.response;
+//   }
+// };
 const Ideas = [
   {
     id: 1,
@@ -8,7 +24,7 @@ const Ideas = [
       "בדרך כלל זה לא קל להיות עיוור, אבל ניתן להשתמש במקל וזה ידוע, מה עם כל הנפילות שנגרמות בגלל המיקל?, אז לפתור את העיה נראה לי כדאי לייצר קופסא שהינה אחראית כגון עבודת המקל."
   }
 ];
-const Projects = [
+const newProject = [
   {
     id: 1,
     number: 112,
@@ -17,7 +33,9 @@ const Projects = [
     supervisor: "ד”ר אורנה מילר",
     about: "Projects for people with speical needs",
     youtubeUrl: "https://www.youtube.com/embed/6r7-oD5CMlM"
-  },
+  }
+];
+const shProject = [
   {
     id: 2,
     number: 112,
@@ -29,6 +47,18 @@ const Projects = [
     youtubeUrl: "https://www.youtube.com/embed/WhxBKzDTR4g"
   },
   {
+    id: 11,
+    number: 112,
+    title: "סד אלסטי לתמיכה בשורש כף היד",
+    author: "אורי וולוביץ’",
+    supervisor: " ד”ר אורית בראון בנימין",
+    about:
+      " סטודנטים בקורס תכן הנדסי יצרו עבור עופר ג’אן, נכה בארבע גפיים,  סד ייחודי  ואלסטי, שאמור לתמוך בשורש כף היד שלו ולאפשר לו לבצע תנועה בכף ידו שאיננה משותקת. אמצעות הסד עופר יוכל מעתה לצחצח שיניים ולחתום את שמו, וחייו יהיו פשוטים וקלים יותר. הסרטון הבא מספר על הפרויקט ומפגיש את עופר עם אחד הסטודנטים שהכינו עבורו את הסד.",
+    youtubeUrl: "https://www.youtube.com/embed/5Cv93XcHnU0"
+  }
+];
+const Projects = [
+  {
     id: 3,
     number: 112,
     title: "עמדת לגרייה חושית",
@@ -38,17 +68,7 @@ const Projects = [
       "כ 8-10 מהדיירים במחלקה הסיעודית של בית האבות מקבלים “גרייה חושית” ע”י מדריכת התעסוקה. גרייה חושית נעשית באמצעות אביזרים שונים. המתקן שתוכנן, פותח ונבנה על ידי הסטודנטים אמין טאריף ונאג’י חטיב, צריך להכיל את האביזרים השונים, להתכוונן (בגובה) בזויות, ובמפתח, כך שיהיה נגיש למטופל בצורה מלאה (בשכיבה, בישיבה בכסא גלגלים או בכורסא גריאטרית). המתקן הינו נייד ומאפשר אחסון בחדר ריפוי בעיסוק. מחמוד שנען, מסגר במקצועו, מהכפר ג’וליס, התנדב ותרם מזמנו וממרצו כדי לסייע לסטודנטים להשלים את משימתם על הצד הטוב ביותר.  תודת המכללה נתונה לו.",
     youtubeUrl: "https://www.youtube.com/embed/NbOlnzVrVeI"
   },
-  ,
-  {
-    id: 4,
-    number: 112,
-    title: "מתקן מעבר מכסא גלגלים למושב אסלה",
-    author: "ליאור ויצמן וסרגיי קוטליארוב",
-    supervisor: "ד”ר אורית בראון בנימין",
-    about:
-      "הארי, בן 64, הוא קטוע 2 רגליים, אך בעל גפיים עליונות תקינות וחזקות. הוא מתקשה במעבר מכיסא הגלגלים לשירותים ונעזר לשם כך בצוות הטיפולי של בית האבות. בית האבות ביקש שיתוכנן עבורו מתקן שיאפשר להארי  לעבור באופן עצמאי מכיסא הגלגלים למושב האסלה. המתקן שהוכן על ידי הסטודנטים ליאור ויצמן וסרגיי קוטליארוב הוא נייד ואינו דורש התאמות כלשהן  בחדר השירותים. המתקן כולל קרש החלקה, אסלה מוגבהת וסטופרים, המכוונים את מושב האסלה ומקבעים אותו. כשהסטודנטים הביאו להארי את המתקן לניסוי, הוא הצליח לעבור מכיסא הגלגלים שלו לאסלה בכוחות עצמו והביע שביעות רצון מהמתקן שהוכן עבורו.הקורס מומן מכספי הוות”ת ושותפות משגב-כרמיאל-פיטסבורג, עבור פרוייקטים באקדמיה למען הקהילה. הפרויקט נעשה במסגרת הקורס: ביומכניקה שיקומית. צילם וערך: אילון פרת",
-    youtubeUrl: "https://www.youtube.com/embed/hAEJyCjfRIAg"
-  },
+
   ,
   {
     id: 5,
@@ -198,6 +218,14 @@ const Categories = [
     imgSrc: "exp.png"
   }
 ];
+const Files = [
+  { img: "pdf.png", name: "Project Book.pdf" },
+  { img: "pptx.png", name: "Final Presentation.pptx" },
+  { img: "matlab.jpg", name: "Project Matlab.m" },
+  { img: "xlsx.png", name: "Statistics.xlsx" }
+];
+
+const Roles = [{ description: "asd", id: 1, name: "admin" }];
 class Api {
   // addNewProject(value) {
   //   const {
@@ -223,11 +251,20 @@ class Api {
   getProjects() {
     return Projects;
   }
+  getSearchProjects() {
+    return shProject;
+  }
+  getFiles() {
+    return Files;
+  }
+  getnewProjects() {
+    return newProject;
+  }
   getCategories() {
     return Categories;
   }
-  getIdeas() {
-    return Ideas;
+  getRoles() {
+    return Roles;
   }
   getProjectsByID(projectID) {
     Projects.filter(project => {
