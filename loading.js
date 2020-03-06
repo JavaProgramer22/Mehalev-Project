@@ -12,7 +12,7 @@ export default class Loading extends React.Component {
         <div className="row justify-content-center">
           <div className="col ml-3 mt-3">
             <img
-              src="loading.png"
+              src="searchGif.gif"
               alt="loading"
               className="center"
               style={imgCss}

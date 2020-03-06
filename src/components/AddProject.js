@@ -4,6 +4,7 @@ import {
   faAd,
   faAtom,
   faClock,
+  faArchive,
   faCalendarday
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -20,51 +21,51 @@ class AddProject extends React.Component {
     super(props);
     this.state = {
       projectname: {
-        name: "projectname",
+        name: "שם פרויקט ",
         value: "",
         errors: [],
         validations: { required: true, minLength: 2 }
       },
       synopsis: {
         value: "",
-        name: "synopsis",
+        name: "תקציר",
         errors: [],
         validations: { required: true, minLength: 2 }
       },
       description: {
         value: "",
-        name: "description",
+        name: "תיאור הפרויקט",
         errors: [],
         validations: { required: true, minLength: 2 }
       },
       date: {
         value: "",
-        name: "date",
+        name: "תאריך התחלה",
         errors: [],
         validations: { required: true }
       },
       superVisor: {
         value: "",
-        name: "superVisor",
+        name: "מנחה הפרויקט",
         errors: [],
         validations: { required: true }
       },
       firstStudent: {
         value: "",
         errors: [],
-        name: "firstStudent",
+        name: "סטודנט ראשון",
         validations: { required: true }
       },
       secondStudent: {
         value: "",
         errors: [],
-        name: "secondStudent",
+        name: "סטודנט שני",
         validations: { required: true }
       },
       category: {
         value: "",
         errors: [],
-        name: "category",
+        name: "קטגוריה",
         validations: { required: true }
       },
       // contain: [Image, Video, PDF, PowerPoint, Matlab, SolidWork],
@@ -209,72 +210,31 @@ class AddProject extends React.Component {
   // async
   submit(e) {
     e.preventDefault();
-    console.log(this.state.projectname.value);
-    console.log(this.state.date.value);
-    console.log(this.state.superVisor.value);
-    console.log(this.state.category.value);
-
+ 
     if (!this.state.projectname.value) {
-      toast.error("No Project Name Provided ");
+      toast.error("חסר שם פרויקט");
       return;
     }
 
     if (!this.state.date.value) {
-      toast.error("Choose Start Date ");
+      toast.error("חסר תאריך התחלה ");
       return;
     }
     if (!this.state.synopsis.value) {
-      toast.error("No Synopsis Provided ");
+      toast.error("חסר תקציר ");
       return;
     }
     if (!this.state.description.value) {
-      toast.error("No Description Provided ");
+      toast.error("חסר תיואר הפרויקט ");
       return;
     }
 
-    if (!this.state.firstStudent.value) {
-      toast.error("No First Student Provided ");
-      return;
-    }
-    if (!this.state.secondStudent.value) {
-      toast.error("No Second Student Provided ");
-      return;
-    }
-    if (!this.state.superVisor.value) {
-      toast.error("No Super Visor Provided ");
-      return;
-    }
-    if (!this.state.category.value) {
-      toast.error("No Category Provided ");
-      return;
-    }
-
-    // let index = 0;
-    // const values = {
-    //   name: this.state.projectname.value,
-    //   description: this.state.description.value,
-    //   startDate: this.state.date.value,
-    //   technicalSkill: this.state.requiredSkills
-    //     .filter(skill => skill.type == "t")
-    //     .map(skill => ({
-    //       id: skill.skillr.id,
-    //       name: skill.skillr.name,
-    //       level: skill.level
-    //     })),
-    //   productSkill: this.state.requiredSkills
-    //     .filter(skill => skill.type == "p")
-    //     .map(skill => ({
-    //       id: skill.skillr.id,
-    //       name: skill.skillr.name,
-    //       level: skill.level
-    //     }))
-    // };
     try {
       setTimeout(() => {
-        toast.success("Project Added Successfully");
-      }, 1000);
+        toast.success("הפרויקט הוכנס בהצלחה");
+      }, 2000);
     } catch (error) {
-      toast.error("Project Name Already Exists,Name Should Be Unique");
+      toast.error("שפ פרויקט צריך להיות יחודי");
     }
   }
   handlefile(e) {
@@ -284,42 +244,20 @@ class AddProject extends React.Component {
     return (
       <>
         <div
-          className="row justify-content-center"
+          className="row justify-content-center text-right"
           style={{ marginBottom: "100px" }}
         >
           <div className="col-10 col-md-10 col-sm-10 col-lg-10">
             <div className="card  my-1 p-2 shadow m-12 mt-4 mb-4" role="alert">
-              <h4 className="alert-heading text-center ">Add New Project</h4>
+              <h4 className="alert-heading text-center ">
+                הוספה פרויקט חדש למערכת
+              </h4>
               <hr></hr>
               <form onSubmit={this.submit}>
                 <div className="row">
-                  <div className="col-md-6">
-                    <label>
-                      <h6>Project Name</h6>
-                    </label>
-                    <div className="input-group">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">
-                          <FontAwesomeIcon icon={faAtom}></FontAwesomeIcon>
-                        </span>
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Project name"
-                        aria-label="Projectname"
-                        aria-describedby="basic-addon1"
-                        id="projectname"
-                        name="projectname"
-                        defaultValue={this.state.projectname.value}
-                        onBlur={this.inputChange}
-                      ></input>
-                    </div>
-                    <InputErrors errors={this.state.projectname.errors} />
-                  </div>
-                  <div className="col-md-6 ">
+                  <div className="col-md-4  ">
                     <label htmlFor="StartDate">
-                      <h6>Start Date</h6>
+                      <h6>תאריך התחלה</h6>
                     </label>
                     <div className="input-group">
                       <div className="input-group-prepend">
@@ -329,7 +267,7 @@ class AddProject extends React.Component {
                       </div>
                       <input
                         type="date"
-                        className="form-control"
+                        className="form-control text-right"
                         placeholder="/ / "
                         aria-label="date"
                         aria-describedby="basic-addon1"
@@ -341,11 +279,36 @@ class AddProject extends React.Component {
                     </div>
                     <InputErrors errors={this.state.date.errors} />
                   </div>
+                  <div className="col-md-8 ">
+                    <label>
+                      <h6>שם הפרויקט</h6>
+                    </label>
+                    <div className="input-group ">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">
+                          <FontAwesomeIcon icon={faAtom}></FontAwesomeIcon>
+                        </span>
+                      </div>
+                      <input
+                        type="text"
+                        className="form-control text-right"
+                        placeholder="שם הפרויקט"
+                        aria-label="Projectname"
+                        aria-describedby="basic-addon1"
+                        id="projectname"
+                        name="projectname"
+                        defaultValue={this.state.projectname.value}
+                        onBlur={this.inputChange}
+                      ></input>
+                    </div>
+                    <InputErrors errors={this.state.projectname.errors} />
+                  </div>
                 </div>
-                <div className="row mt-2">
+
+                <div className="row mt-2 ">
                   <div className="col-md-12 ">
                     <label htmlFor="projectSynopsis">
-                      <h6>Synopsis</h6>
+                      <h6>תקציר</h6>
                     </label>
                     <div className="input-group">
                       <div className="input-group-prepend">
@@ -355,8 +318,8 @@ class AddProject extends React.Component {
                       </div>
                       <textarea
                         type="text"
-                        className="form-control"
-                        placeholder="Synopsis"
+                        className="form-control text-right"
+                        placeholder="תקציר"
                         aria-label="Synopsis"
                         aria-describedby="basic-addon1"
                         id="synopsis"
@@ -372,18 +335,18 @@ class AddProject extends React.Component {
                 <div className="row mt-2">
                   <div className="col-md-12 ">
                     <label htmlFor="projectDescription">
-                      <h6>Description</h6>
+                      <h6>תיאור הפרויקט</h6>
                     </label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">
-                          <FontAwesomeIcon icon={faAd}></FontAwesomeIcon>
+                          <FontAwesomeIcon icon={faArchive}></FontAwesomeIcon>
                         </span>
                       </div>
                       <textarea
                         type="text"
-                        className="form-control"
-                        placeholder="Description"
+                        className="form-control text-right"
+                        placeholder="תיאור הפרויקט"
                         aria-label="Description"
                         aria-describedby="basic-addon1"
                         id="description"
@@ -396,32 +359,32 @@ class AddProject extends React.Component {
                     <InputErrors errors={this.state.description.errors} />
                   </div>
                 </div>
-                <h6 className="mt-4 mb-0 ">Users For Project</h6>
+                <h6 className="mt-4 mb-0 ">אנשי ביצוע</h6>
                 <hr></hr>
-                <div className="row">
+                <div className="row ">
                   <div className="col">
                     {" "}
-                    <div className="form-group ">
+                    <div className="form-group text-right">
                       <label htmlFor="Student1">
-                        <h6>First Student</h6>
+                        <h6>סטודנט שני</h6>
                       </label>
                       <input
                         type="text"
-                        className="form-control mb-1"
-                        placeholder="Search First Student Name"
+                        className="form-control mb-1 text-right"
+                        placeholder="חפש שם סטודנט"
                       />
                       <select
-                        className="form-control mt-1"
+                        className="form-control mt-1 text-right"
                         id="firstStudent"
                         name="firstStudent"
                         placeholder="Select A Student"
                         defaultValue={this.state.firstStudent.value}
                         onBlur={this.inputChange}
                       >
-                        <option value="0">Select</option>
-                        <option value="1">Jeries Elias</option>
-                        <option value="2">Jeries Hadad</option>
-                        <option value="3">Jeries Zamel</option>
+                        <option value="0"></option>
+                        <option value="1">גרייס אליאס</option>
+                        <option value="2">גרייס חדאד </option>
+                        <option value="3">גרייס זאמל</option>
                       </select>
                     </div>
                   </div>
@@ -429,12 +392,12 @@ class AddProject extends React.Component {
                     {" "}
                     <div className="form-group ">
                       <label htmlFor="superVisor">
-                        <h6>Second Student</h6>
+                        <h6>סטודנט ראשון</h6>
                       </label>
                       <input
                         type="text"
-                        class="form-control mb-1"
-                        placeholder="Search Second Student Name"
+                        className="form-control mb-1 text-right"
+                        placeholder="חפש שם סטודנט"
                       />
                       <select
                         className="form-control mt-1"
@@ -444,11 +407,11 @@ class AddProject extends React.Component {
                         // defaultValue={this.state.secondStudent.value}
                         onBlur={this.inputChange}
                       >
-                        <option value="0">Select</option>
-                        <option value="1">Saheer Abed</option>
-                        <option value="2">Saheer Boshnaq</option>
-                        <option value="3">Saheer Jacob</option>
-                        <option value="4">Saheer Masouta</option>
+                        <option value="0"></option>
+                        <option value="1">סהיר עאבד</option>
+                        <option value="2">סהיר בושנאק</option>
+                        <option value="3">סהיר יעקובי</option>
+                        <option value="4">סהיר מוסטאפה</option>
                       </select>
                     </div>
                   </div>
@@ -456,19 +419,20 @@ class AddProject extends React.Component {
                   <div className="col">
                     <div className="form-group ">
                       <label htmlFor="supervisor">
-                        <h6>Super Visor</h6>
+                        <h6>מנחה</h6>
                       </label>
                       <select
                         className="form-control mt-1"
                         id="superVisor"
-                        placeholder="Select A Super Visor"
+                        placeholder="לבחור מנחה"
                         name="superVisor"
                         defaultValue={this.state.superVisor.value}
                         onBlur={this.inputChange}
                       >
-                        <option value="0">Select</option>
+                        <option value="0"></option>
                         <option value="1">אורנית בר-זית</option>
                         <option value="2">ד“ר אורית בראון</option>
+                        <option value="1">ד"ר מלכי גרוסמן</option>
                         <option value="3">ד”ר אורנה מילר</option>
                         <option value="4">ד”ר נירית גביש </option>
                         <option value="5">עופר ג’אן</option>
@@ -479,17 +443,17 @@ class AddProject extends React.Component {
                     {" "}
                     <div className="form-group ">
                       <label htmlFor="superVisor">
-                        <h6>Project Category </h6>
+                        <h6>קטגוריה </h6>
                       </label>
                       <select
                         className="form-control mt-1"
                         id="category"
                         name="category"
-                        placeholder="Select A Category"
+                        placeholder="לבחור קטגוריה"
                         defaultValue={this.state.category.value}
                         onBlur={this.inputChange}
                       >
-                        <option value="0">Select</option>
+                        <option value="0"></option>
                         <option value="1">רב תחומי </option>
                         <option value="2">א"ב</option>
                         <option value="3">מומלצים</option>
@@ -499,21 +463,27 @@ class AddProject extends React.Component {
                     </div>
                   </div>
                 </div>
-                <h3 className="mt-4 mb-0 ">Project Files </h3>
+                <h3 className="mt-4 mb-0 ">קבצי הפרויקט </h3>
                 <hr></hr>
                 <div className="row justify-content-center">
                   <div className="col ml-5">
                     {/* <FileUpload name="Image" groupID="1" /> */}
-                    <h5>Public Files</h5>
+                    <button type="button" className="btn btn-outline-success">
+                      <b>קבצים לקהל רחב</b>
+                    </button>
+                    <br></br>
                     <h7>
-                      <b>Required:"Image,Video,PDF"</b>
+                      <b>Such As :"Image,Video,PDF"</b>
                     </h7>
                     <SelectFiles />
                   </div>
                   <div className="col">
-                    <h5>Private Files</h5>
+                    <button type="button" className="btn btn-outline-danger">
+                      <b>קבצים לשימור פנימי במערכת</b>
+                    </button>
+                    <br></br>
                     <h7>
-                      <b>Optional:"Matlab,Power Point,Solid Work"</b>
+                      <b>Such As:"Matlab,Power Point,Solid Work"</b>
                     </h7>
                     {/* <FileUpload name="Video" groupID="2" /> */}
 

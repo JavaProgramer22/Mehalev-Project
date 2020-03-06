@@ -58,23 +58,23 @@ export default class Projects extends React.Component {
         <Row className="justify-content-center mt-5">
           <Col md={8}>
             <InputGroup>
-            <InputGroup.Append>
+              <InputGroup.Append>
                 <Button variant="outline-info">חפש</Button>
               </InputGroup.Append>
-              
-              <FormControl style={{textAlign: "right"}}
+
+              <FormControl
+                style={{ textAlign: "right" }}
                 placeholder="הקלד מילות חיפוש"
                 aria-label="Project Name"
                 // aria-describedby="basic-addon2"
               />
-             
             </InputGroup>
           </Col>
         </Row>
         <Row className="justify-content-center mt-2">
           {" "}
           <Link to={`/category`}> חיפוש מתקדם</Link>
-         {/*  to={`/category/${category.id}`}
+          {/*  to={`/category/${category.id}`}
          onClick={e => this.setCategoryInSession(category)} */}
         </Row>
         <Row
