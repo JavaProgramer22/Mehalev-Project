@@ -18,6 +18,7 @@ import SignIn from "../components/SignIn";
 import newProject from "../components/newProject";
 import AddProject from "../components/AddProject";
 import AddUsers from "../components/AddUsers";
+import Test from "../components/SearchTable";
 import PendingIdeas from "../components/PendingIdeas";
 // import {Layout} from '../components/Layout'
 // import Login from "../components/login/login";
@@ -64,6 +65,7 @@ export default () => (
       <Route path="/ideas" component={IdeasBank} />
       <Route path="/addproject" component={AddProject} />
       <Route path="/users-list" component={AddUsers} />
+      <Route path="/test" component={Test} />
       <Route path="/pendingideas" component={PendingIdeas} />
 
       <Route component={PageNotFound} />

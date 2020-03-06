@@ -82,7 +82,7 @@ export default class Demo extends React.Component {
           loading={uploading}
           style={{ marginTop: 16 }}
         >
-          {uploading ? "Uploading" : "Start Upload"}
+          {uploading ? "Uploading" : "Ready To Upload"}
         </Button>
       </div>
     );
