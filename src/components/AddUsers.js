@@ -1,6 +1,6 @@
 import React from "react";
 import Api from "../services/api";
-import Temp from "./SearchTable";
+import SearchTable from "./SearchTable";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -485,7 +485,7 @@ export default class addUser extends React.Component {
           {this.state.showSearchTable.flag ? (
             <Row className="justify-content-center mt-5">
               <Col md={10}>
-                <Temp />
+                <SearchTable />
               </Col>
             </Row>
           ) : (

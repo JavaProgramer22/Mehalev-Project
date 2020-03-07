@@ -45,7 +45,7 @@ export default class Projects extends React.Component {
     return (
       <Container>
         <Row className="justify-content-center">
-          <h1 style={{ textAlign: "right" }}>פרויקטים חדשיים</h1>
+          <h1 style={{ textAlign: "right" }}>פרויקטים חדשים</h1>
         </Row>
         <Row className="justify-content-center">
           <p dir="rtl" style={{ textAlign: "right" }}>

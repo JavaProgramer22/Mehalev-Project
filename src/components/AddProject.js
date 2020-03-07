@@ -399,6 +399,7 @@ class AddProject extends React.Component {
                         className="form-control mb-1 text-right"
                         placeholder="חפש שם סטודנט"
                       />
+                     
                       <select
                         className="form-control mt-1"
                         id="secondStudent"
