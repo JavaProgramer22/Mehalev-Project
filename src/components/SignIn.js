@@ -6,7 +6,8 @@ import {
   faCity,
   faEnvelope,
   faUniversity,
-  faEdit, faLock
+  faEdit,
+  faLock
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import InputErrors from "./InputErrors";
@@ -85,72 +86,106 @@ class SignIn extends React.Component {
   render() {
     return (
       <Container>
-                  <Row dir="rtl">
-
-        <h6 className="alert-heading ">בקשת התחברות למאגר הפרויקטים והרעיונות</h6>
+        <Row dir="rtl" className="justify-content-center">
+          <h4 className="alert-heading font-weight-bold">
+            בקשת התחברות למאגר הפרויקטים והרעיונות
+          </h4>
         </Row>
         <hr></hr>
-        <Row className="justify-content-center">
-        <form onSubmit={this.submit}>
-          <div>
-              <div className="text-right">
-              <label htmlFor="lastName"  style={{ color: "#003366", fontSize: "16px" , textAlign:"right"}}>שם משתמש</label>
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text" id="basic-addon1">
-                    <FontAwesomeIcon icon={faUser} />
-                  </span>
+        <Row className="justify-content-center" style={{ fontSize: "20px" }}>
+          <Col md={6}>
+            <form onSubmit={this.submit}>
+              <div>
+                <div className="text-right">
+                  <label
+                    htmlFor="lastName"
+                    style={{
+                      color: "#003366",
+
+                      textAlign: "right"
+                    }}
+                  >
+                    שם משתמש
+                  </label>
+                  <div className="input-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text" id="basic-addon1">
+                        <FontAwesomeIcon icon={faUser} />
+                      </span>
+                    </div>
+
+                    <input
+                      type="text"
+                      className="form-control text-right"
+                      placeholder="שם משפחה"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                      id="lastName"
+                      name="lastName"
+                      defaultValue={this.state.password.value}
+                      onBlur={this.inputChange}
+                    ></input>
+                  </div>
+                  <InputErrors errors={this.state.password.errors} />
                 </div>
 
-                <input
-                  type="text"
-                  className="form-control text-right"
-                  placeholder="שם משפחה"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
-                  id="lastName"
-                  name="lastName"
-                  defaultValue={this.state.password.value}
-                  onBlur={this.inputChange}
-                ></input>
+                <div className="text-right">
+                  <label
+                    htmlFor="firstName"
+                    style={{
+                      color: "#003366",
 
-              </div>
-              <InputErrors errors={this.state.password.errors} />
-            </div>
-            
-            <div className="text-right">
-              <label htmlFor="firstName" style={{ color: "#003366", fontSize: "16px",textAlign:"right" }}>סיסמה</label>
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text" id="basic-addon1">
-                    <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                  
-                  </span>
+                      textAlign: "right"
+                    }}
+                  >
+                    סיסמה
+                  </label>
+                  <div className="input-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text" id="basic-addon1">
+                        <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+                      </span>
+                    </div>
+                    <input
+                      type="password"
+                      className="form-control text-right"
+                      placeholder="שם פרטי"
+                      aria-label="Firstname"
+                      aria-describedby="basic-addon1"
+                      id="firstName"
+                      name="firstName"
+                      defaultValue={this.state.firstName.value}
+                      onBlur={this.inputChange}
+                    ></input>
+                  </div>
+                  <InputErrors errors={this.state.firstName.errors} />
                 </div>
-                <input
-                  type="password"
-                  className="form-control text-right"
-                  placeholder="שם פרטי"
-                  aria-label="Firstname"
-                  aria-describedby="basic-addon1"
-                  id="firstName"
-                  name="firstName"
-                  defaultValue={this.state.firstName.value}
-                  onBlur={this.inputChange}
-                ></input>
-
               </div>
-              <InputErrors errors={this.state.firstName.errors} />
-            </div>
-          </div>
-          <Row className="justify-content-center mt-3">
-            <button type="submit" className="btn btn-primary w-25">
-              התחבר
-            </button>
-          </Row>
-        </form>
+              <Row className="justify-content-center text-right mt-2">
+                <Col md={1}>
+                  {" "}
+                  <input
+                    type="checkbox"
+                    id="check"
+                    style={{ width: "25px", height: "25px" }}
+                  />
+                </Col>
+                <Col md={3}>
+                  {" "}
+                  <label for="check"> תזכור אותי</label>
+                </Col>
+              </Row>
+              <Row className="justify-content-center text-right mt-2">
+                <a href="#">שככחתי סיסמה </a>
+              </Row>
+              <Row className="justify-content-center mt-3">
+                <button type="submit" className="btn btn-primary w-25">
+                  התחבר
+                </button>
+              </Row>
+            </form>
+          </Col>
         </Row>
-
       </Container>
     );
   }

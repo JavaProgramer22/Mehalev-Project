@@ -42,19 +42,25 @@ export default class Navbar extends React.Component {
         icon: faHome,
         path: "/",
         name: "דף הבית",
-        role: ["admin", "manager", "student"]
+        role: ["admin", "superVisor", "student", "external"]
       },
       {
         icon: faPlus,
         path: "/addproject",
         name: "הוספת פרויקט",
-        role: ["admin", "manager"]
+        role: ["admin"]
+      },
+      {
+        icon: faPlus,
+        path: "/addproject",
+        name: "ערכית פרויקט",
+        role: ["superVisor"]
       },
       {
         icon: faClipboardList,
         path: "/projects",
         name: "פרויקטים",
-        role: ["admin"]
+        role: ["admin", "external", "student", "superVisor"]
       },
       {
         icon: faArchive,
@@ -93,44 +99,45 @@ export default class Navbar extends React.Component {
         icon: faStar,
         path: "/my-skills/0",
         name: "My Skills",
-        role: ["student", "manager"]
+        role: ["", ""]
       },
       {
         icon: faListAlt,
         path: "/pending-assignment-request",
         name: "Pending Assignment Request",
-        role: ["manager"]
+        role: [""]
       },
       {
         icon: faClipboardCheck,
-        path: "/done-assignments",
-        name: "Done Assigments",
-        role: ["manager"]
+        path: "/messagesFromSuperVisor",
+        name: "הודעות ממנחה",
+        role: ["student"]
       },
-      {
-        icon: faClipboardCheck,
-        path: "/signin",
-        name: "התחברות",
-        role: ["admin"]
-      },
-      {
-        icon: faStarHalfAlt,
-        path: "/pendingSkills/0",
-        name: "Pending Skills",
-        role: ["manager"]
-      },
-      {
-        icon: faStarHalfAlt,
 
+      {
+        icon: faStarHalfAlt,
+        path: "/pendingIdeas",
+        name: "רעיונות בהמתנה לאישור",
+        role: ["superVisor"]
+      },
+
+      {
+        icon: faClipboardList,
         path: "/assign-history/",
-        name: "My Assignments",
+        name: "פרויקט שלי ",
         role: ["student"]
       },
       {
         icon: faPaperPlane,
         path: "/contactus/",
         name: "צור קשר",
-        role: ["manager", "admin"]
+        role: ["superVisor", "admin", "student", "external"]
+      },
+      {
+        icon: faClipboardCheck,
+        path: "/signin",
+        name: "התחברות",
+        role: ["admin", "student", "superVisor"]
       }
     ];
     this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -177,8 +184,9 @@ export default class Navbar extends React.Component {
 
                 const roleName = "admin";
 
-                // const roleName= "manager"
-                // const roleName= "employee"
+                // const roleName = "superVisor";
+                // const roleName = "student";
+                // const roleName = "external";
 
                 return this.navbarMenu.map((menuItem, index) => {
                   if (menuItem.role.includes(roleName)) {

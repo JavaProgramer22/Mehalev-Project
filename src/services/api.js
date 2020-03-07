@@ -1,20 +1,20 @@
 import axios from "axios";
 
-// const send = async (url, data) => {
-//   try {
-//     const response = await (data
-//       ? axios.post(`http://localhost:8080/api/${url}`, data, {
-//           withCredentials: true
-//         })
-//       : axios.get(`http://localhost:8080/api/${url}`, {
-//           withCredentials: true
-//         }));
+const send = (url, data) => {
+  try {
+    const response = data
+      ? axios.post(`http://localhost:8080/api/${url}`, data, {
+          withCredentials: true
+        })
+      : axios.get(`http://localhost:8080/api/${url}`, {
+          withCredentials: true
+        });
 
-//     return response.data;
-//   } catch (err) {
-//     return err.response;
-//   }
-// };
+    return response.data;
+  } catch (err) {
+    return err.response;
+  }
+};
 const Ideas = [
   {
     id: 1,

@@ -32,12 +32,12 @@ export default class SearchByCategory extends React.Component {
   render() {
     return (
       <Container>
-        <Row dir="rtl">
+        <Row className="justify-content-center">
           <h1 style={{ textAlign: "right" }}>מרכז החיפוש לפרויקטים</h1>
         </Row>
-        <Row dir="rtl" className="justify-content-start">
-          <h3>בחרו באחת מהאפשרויות הבאות</h3>
-        </Row>
+        {/* <Row className="justify-content-center">
+          <h3 style={{ textAlign: "right" }}>בחרו באחת מהאפשרויות הבאות</h3>
+        </Row> */}
         <Row
           className="mt-2 ml-5 mr-5  justify-content-center"
           style={{ marginBottom: "100px" }}
