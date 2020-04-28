@@ -8,6 +8,7 @@ import Home from "../components/Home.js";
 import Projects from "../components/Projects";
 import Project from "../components/Project";
 import shProject from "../components/searchProject";
+import shProject2 from "../components/searchProject2";
 import ScrollButton from "../shared/ScrollTopButton";
 import ContactUs from "../components/ContactUs";
 import NewIdea from "../components/NewIdea";
@@ -61,6 +62,7 @@ export default () => (
       <Route path="/category" component={SearchByCategory} />
       <Route path="/newProject" component={newProject} />
       <Route path="/smartSearch" component={shProject} />
+      <Route path="/smartSearch2" component={shProject2} />
       <Route path="/signin" component={SignIn} />
       <Route path="/ideas" component={IdeasBank} />
       <Route path="/addproject" component={AddProject} />

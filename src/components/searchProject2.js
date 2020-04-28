@@ -28,7 +28,7 @@ export default class Projects extends React.Component {
     this.setProjectInSession = this.setProjectInSession.bind(this);
   }
   componentDidMount() {
-    const Projects = Api.getSearchProjects();
+    const Projects = Api.getSearchProjects2();
     this.setState({ Projects });
   }
   setProjectInSession(project) {
@@ -59,9 +59,7 @@ export default class Projects extends React.Component {
           <Col md={8}>
             <InputGroup>
               <InputGroup.Append>
-                <Link to="/smartSearch2">
-                  <Button variant="outline-info">חפש</Button>
-                </Link>
+                <Button variant="outline-info">חפש</Button>
               </InputGroup.Append>
 
               <FormControl

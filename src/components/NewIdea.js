@@ -6,10 +6,12 @@ import {
   faCity,
   faEnvelope,
   faUniversity,
-  faEdit,faIdCard
+  faEdit,
+  faIdCard,
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import InputErrors from "./InputErrors";
+import { toast } from "react-toastify";
 
 export default class NewIdea extends React.Component {
   constructor() {
@@ -18,31 +20,36 @@ export default class NewIdea extends React.Component {
       firstName: {
         value: "",
         errors: [],
-        validations: { required: true, minLength: 2 }
+        validations: { required: true, minLength: 2 },
       },
       lastName: {
         value: "",
         errors: [],
-        validations: { required: true, minLength: 2 }
+        validations: { required: true, minLength: 2 },
       },
       email: {
         value: "",
         errors: [],
         validations: {
           required: true,
-          pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-        }
+          pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        },
       },
       topic: {
         value: "",
         errors: [],
-        validations: { required: true, minLength: 5 }
+        validations: { required: true, minLength: 5 },
       },
       message: {
         value: "",
         errors: [],
-        validations: { required: true, minLength: 10 }
-      }
+        validations: { required: true, minLength: 10 },
+      },
+      message2: {
+        value: "",
+        errors: [],
+        validations: { required: true, minLength: 10 },
+      },
     };
 
     this.inputChange = this.inputChange.bind(this);
@@ -79,8 +86,8 @@ export default class NewIdea extends React.Component {
       [name]: {
         ...this.state[name],
         value: value,
-        errors
-      }
+        errors,
+      },
     });
   }
 
@@ -89,26 +96,42 @@ export default class NewIdea extends React.Component {
     //2- show errors if any validations failed
     //3- if everything's OK, than send the data to...
 
-    for (const key in this.state) {
-      this.inputChange({ target: { value: this.state[key].value, name: key } });
-    }
+    // for (const key in this.state) {
+    //   this.inputChange({ target: { value: this.state[key].value, name: key } });
+    // }
 
     //How can I know if every field is valid?
 
     //Send the data outside...
-
+    try {
+      setTimeout(() => {
+        toast.success(" הרעיון נשלח בהצלחה,תודה על פנייתך");
+      }, 2000);
+    } catch (error) {
+      toast.error("שפ פרויקט צריך להיות יחודי");
+    }
     e.preventDefault();
   }
 
   render() {
     return (
-      <Container style={{marginBottom:"100px" }}>
-        <h4 className="alert-heading text-center" style={{textAlign:"right"}}>פנייה להצעת רעיון חדש</h4>
+      <Container style={{ marginBottom: "100px" }}>
+        <h4
+          className="alert-heading text-center"
+          style={{ textAlign: "right" }}
+        >
+          פנייה להצעת רעיון חדש
+        </h4>
         <hr></hr>
         <form onSubmit={this.submit}>
           <div className="row offset-md-1  mb-1 text-right">
             <div className="col-md-4">
-              <label htmlFor="lastName"  style={{ color: "#003366", fontSize: "16px" }}>שם משפחה</label>
+              <label
+                htmlFor="lastName"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                שם משפחה
+              </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -130,7 +153,12 @@ export default class NewIdea extends React.Component {
               <InputErrors errors={this.state.lastName.errors} />
             </div>
             <div className="col-md-4 offset-md-2 mb-1">
-              <label htmlFor="firstName" style={{ color: "#003366", fontSize: "16px" }}>שם פרטי</label>
+              <label
+                htmlFor="firstName"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                שם פרטי
+              </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -155,7 +183,12 @@ export default class NewIdea extends React.Component {
           <div className="row offset-md-1 mb-3 text-right">
             <div className="col-md-3" />
             <div className="col-md-5 offset-md-2 mb-3">
-              <label htmlFor="studentEmail" style={{ color: "#003366", fontSize: "16px" }}>אימייל</label>
+              <label
+                htmlFor="studentEmail"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                אימייל
+              </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -178,11 +211,15 @@ export default class NewIdea extends React.Component {
             </div>
           </div>
 
-
           <div className="row offset-md-1 mb-3">
             <div className="col-md-10 mb-3 text-right">
-            <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>קורות חיים</label>
-              <h6>          (רקע אקדמי ו/או נסיון תעסוקתי)</h6>
+              <label
+                htmlFor="topicMessage"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                קורות חיים
+              </label>
+              <h6> (רקע אקדמי ו/או נסיון תעסוקתי)</h6>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -190,7 +227,7 @@ export default class NewIdea extends React.Component {
                   </span>
                 </div>
                 <textarea
-                  style={{height:"150px"}}
+                  style={{ height: "150px" }}
                   className="form-control text-right"
                   placeholder="נא לרשום כמה מלים עבורך"
                   aria-label="With textarea"
@@ -206,7 +243,12 @@ export default class NewIdea extends React.Component {
           <div className="row offset-md-1  mb-1 text-right">
             <div className="col-md-3" />
             <div className="col-md-5 offset-md-2">
-              <label htmlFor="topicMessage" style={{ color: "#003366", fontSize: "16px" }}>נושא הפנייה </label>
+              <label
+                htmlFor="topicMessage"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                נושא הפנייה{" "}
+              </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="basic-addon1">
@@ -231,7 +273,12 @@ export default class NewIdea extends React.Component {
 
           <div className="row offset-md-1 mb-3">
             <div className="col-md-10 mb-3 text-right">
-              <label htmlFor="message" style={{ color: "#003366", fontSize: "16px" }}>תוכן הפנייה </label>
+              <label
+                htmlFor="message"
+                style={{ color: "#003366", fontSize: "16px" }}
+              >
+                תוכן הפנייה{" "}
+              </label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
@@ -239,17 +286,17 @@ export default class NewIdea extends React.Component {
                   </span>
                 </div>
                 <textarea
-                  style={{height:"150px"}}
+                  style={{ height: "150px" }}
                   className="form-control text-right"
                   placeholder="נא לתאר את הבעיה שעבורה כדאי לתפור מוצר חדש"
                   aria-label="With textarea"
-                  id="message"
-                  name="message"
-                  defaultValue={this.state.message.value}
+                  id="message2"
+                  name="message2"
+                  defaultValue={this.state.message2.value}
                   onBlur={this.inputChange}
                 ></textarea>
               </div>
-              <InputErrors errors={this.state.message.errors} />
+              <InputErrors errors={this.state.message2.errors} />
             </div>
           </div>
           <Row className="justify-content-center">
@@ -258,8 +305,7 @@ export default class NewIdea extends React.Component {
             </button>
           </Row>
         </form>
-        <Row className="justify-content-center"/>
-
+        <Row className="justify-content-center" />
       </Container>
     );
   }

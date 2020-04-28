@@ -14,7 +14,7 @@ import {
   faPlus,
   faStarHalfAlt,
   faPaperPlane,
-  faArchive
+  faArchive,
 } from "@fortawesome/free-solid-svg-icons";
 
 // import {DataContext} from './Provider/DataProvider'
@@ -27,14 +27,14 @@ const styleNavbar = {
   backgroundColor: "#f8f9fa",
   transition: "transform 0.228s ease-in",
   zIndex: "100",
-  top: "0"
+  top: "0",
 };
 
 export default class Navbar extends React.Component {
   constructor() {
     super();
     this.state = {
-      open: false
+      open: false,
     };
 
     this.navbarMenu = [
@@ -42,103 +42,103 @@ export default class Navbar extends React.Component {
         icon: faHome,
         path: "/",
         name: "דף הבית",
-        role: ["admin", "superVisor", "student", "external"]
+        role: ["admin", "superVisor", "student", "external"],
       },
       {
         icon: faPlus,
         path: "/addproject",
         name: "הוספת פרויקט",
-        role: ["admin"]
+        role: ["admin"],
       },
       {
         icon: faPlus,
         path: "/addproject",
         name: "ערכית פרויקט",
-        role: ["superVisor"]
+        role: ["superVisor"],
       },
       {
         icon: faClipboardList,
         path: "/projects",
         name: "פרויקטים",
-        role: ["admin", "external", "student", "superVisor"]
+        role: ["admin", "external", "student", "superVisor"],
       },
       {
         icon: faArchive,
         path: "/ideas",
         name: "רעיונות",
-        role: ["admin"]
+        role: ["admin"],
       },
       {
         icon: faLightbulb,
         path: "/newidea",
         name: "רעיון חדש",
-        role: ["admin"]
+        role: ["admin"],
       },
       {
         icon: faUserCircle,
         path: "/users-list",
         name: "משתמשים",
-        role: ["admin"]
+        role: ["admin"],
       },
 
       {
         icon: faUserLock,
         path: "/roles",
         name: "תפקידים והרשאות",
-        role: ["admin"]
+        role: ["admin"],
       },
 
       {
         icon: faCog,
         path: "/settings/add/roles",
         name: "הגדרות",
-        role: ["admin"]
+        role: ["admin"],
       },
 
       {
         icon: faStar,
         path: "/my-skills/0",
         name: "My Skills",
-        role: ["", ""]
+        role: ["", ""],
       },
       {
         icon: faListAlt,
         path: "/pending-assignment-request",
         name: "Pending Assignment Request",
-        role: [""]
+        role: [""],
       },
       {
         icon: faClipboardCheck,
         path: "/messagesFromSuperVisor",
         name: "הודעות ממנחה",
-        role: ["student"]
+        role: ["student"],
       },
 
       {
         icon: faStarHalfAlt,
         path: "/pendingIdeas",
         name: "רעיונות בהמתנה לאישור",
-        role: ["superVisor"]
+        role: ["superVisor"],
       },
 
       {
         icon: faClipboardList,
         path: "/assign-history/",
         name: "פרויקט שלי ",
-        role: ["student"]
+        role: ["student"],
       },
       {
         icon: faPaperPlane,
         path: "/contactus/",
         name: "צור קשר",
-        role: ["superVisor", "admin", "student", "external"]
+        role: ["superVisor", "admin", "student", "external"],
       },
       {
         icon: faClipboardCheck,
         path: "/signin",
         name: "התחברות",
-        role: ["admin", "student", "superVisor"]
-      }
+        role: ["student", "superVisor"],
+      },
     ];
     this.toggleNavbar = this.toggleNavbar.bind(this);
   }
@@ -152,7 +152,7 @@ export default class Navbar extends React.Component {
         <div>
           <h3
             style={{
-              cursor: "pointer"
+              cursor: "pointer",
             }}
             className="ml-2"
             onClick={this.toggleNavbar}
@@ -166,7 +166,7 @@ export default class Navbar extends React.Component {
               transform: this.state.open
                 ? `translateX(0)`
                 : `translateX(-${NavbarWidth})`,
-              ...styleNavbar
+              ...styleNavbar,
             }}
           >
             <button

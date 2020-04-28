@@ -5,7 +5,7 @@ import {
   faAtom,
   faClock,
   faArchive,
-  faCalendarday
+  faCalendarday,
 } from "@fortawesome/free-solid-svg-icons";
 
 import InputErrors from "./InputErrors";
@@ -24,87 +24,87 @@ class AddProject extends React.Component {
         name: "שם פרויקט ",
         value: "",
         errors: [],
-        validations: { required: true, minLength: 2 }
+        validations: { required: true, minLength: 2 },
       },
       synopsis: {
         value: "",
         name: "תקציר",
         errors: [],
-        validations: { required: true, minLength: 2 }
+        validations: { required: true, minLength: 2 },
       },
       description: {
         value: "",
         name: "תיאור הפרויקט",
         errors: [],
-        validations: { required: true, minLength: 2 }
+        validations: { required: true, minLength: 2 },
       },
       date: {
         value: "",
         name: "תאריך התחלה",
         errors: [],
-        validations: { required: true }
+        validations: { required: true },
       },
       superVisor: {
         value: "",
         name: "מנחה הפרויקט",
         errors: [],
-        validations: { required: true }
+        validations: { required: true },
       },
       firstStudent: {
         value: "",
         errors: [],
         name: "סטודנט ראשון",
-        validations: { required: true }
+        validations: { required: true },
       },
       secondStudent: {
         value: "",
         errors: [],
         name: "סטודנט שני",
-        validations: { required: true }
+        validations: { required: true },
       },
       category: {
         value: "",
         errors: [],
         name: "קטגוריה",
-        validations: { required: true }
+        validations: { required: true },
       },
       // contain: [Image, Video, PDF, PowerPoint, Matlab, SolidWork],
       image: {
         value: [],
         errors: [],
         name: "Image",
-        validations: { required: true }
+        validations: { required: true },
       },
       video: {
         value: [],
         errors: [],
         name: "Video",
-        validations: { required: true }
+        validations: { required: true },
       },
       pdf: {
         value: [],
         errors: [],
         name: "PDF",
-        validations: { required: true }
+        validations: { required: true },
       },
       powerPoint: {
         value: [],
         errors: [],
         name: "Power Point",
-        validations: { required: true }
+        validations: { required: true },
       },
       matlab: {
         value: [],
         errors: [],
         name: "Matlab",
-        validations: { required: true }
+        validations: { required: true },
       },
       solidWork: {
         value: [],
         errors: [],
         name: "Solid Work",
-        validations: { required: true }
-      }
+        validations: { required: true },
+      },
     };
     this.inputChange = this.inputChange.bind(this);
     this.submit = this.submit.bind(this);
@@ -203,25 +203,25 @@ class AddProject extends React.Component {
     this.setState({
       [name]: {
         ...this.state[name],
-        value
-      }
+        value,
+      },
     });
   }
   // async
   submit(e) {
     e.preventDefault();
- 
+
     if (!this.state.projectname.value) {
       toast.error("חסר שם פרויקט");
       return;
     }
 
     if (!this.state.date.value) {
-      toast.error("חסר תאריך התחלה ");
+      toast.error("חסר תאריך הגשה ");
       return;
     }
     if (!this.state.synopsis.value) {
-      toast.error("חסר תקציר ");
+      toast.error("חסר מילות מפתיח ");
       return;
     }
     if (!this.state.description.value) {
@@ -257,7 +257,7 @@ class AddProject extends React.Component {
                 <div className="row">
                   <div className="col-md-4  ">
                     <label htmlFor="StartDate">
-                      <h6>תאריך התחלה</h6>
+                      <h6>תאריך הגשה</h6>
                     </label>
                     <div className="input-group">
                       <div className="input-group-prepend">
@@ -308,7 +308,7 @@ class AddProject extends React.Component {
                 <div className="row mt-2 ">
                   <div className="col-md-12 ">
                     <label htmlFor="projectSynopsis">
-                      <h6>תקציר</h6>
+                      <h6>מילות מפתיח</h6>
                     </label>
                     <div className="input-group">
                       <div className="input-group-prepend">
@@ -319,7 +319,7 @@ class AddProject extends React.Component {
                       <textarea
                         type="text"
                         className="form-control text-right"
-                        placeholder="תקציר"
+                        placeholder="מילות מפתיח"
                         aria-label="Synopsis"
                         aria-describedby="basic-addon1"
                         id="synopsis"
@@ -374,6 +374,7 @@ class AddProject extends React.Component {
                         placeholder="חפש שם סטודנט"
                       />
                       <select
+                        dir="rtl"
                         className="form-control mt-1 text-right"
                         id="firstStudent"
                         name="firstStudent"
@@ -399,8 +400,9 @@ class AddProject extends React.Component {
                         className="form-control mb-1 text-right"
                         placeholder="חפש שם סטודנט"
                       />
-                     
+
                       <select
+                        dir="rtl"
                         className="form-control mt-1"
                         id="secondStudent"
                         name="secondStudent"
@@ -409,10 +411,10 @@ class AddProject extends React.Component {
                         onBlur={this.inputChange}
                       >
                         <option value="0"></option>
-                        <option value="1">סהיר עאבד</option>
-                        <option value="2">סהיר בושנאק</option>
-                        <option value="3">סהיר יעקובי</option>
-                        <option value="4">סהיר מוסטאפה</option>
+                        <option value="1">סאהיר עאבד</option>
+                        <option value="2">סאהיר בושנאק</option>
+                        <option value="3">סאהיר יעקוב</option>
+                        <option value="4">סאהיר מוסטאפה</option>
                       </select>
                     </div>
                   </div>
@@ -423,6 +425,7 @@ class AddProject extends React.Component {
                         <h6>מנחה</h6>
                       </label>
                       <select
+                        dir="rtl"
                         className="form-control mt-1"
                         id="superVisor"
                         placeholder="לבחור מנחה"
@@ -440,13 +443,39 @@ class AddProject extends React.Component {
                       </select>
                     </div>
                   </div>
+                </div>
+                <h5 className="mt-4 mb-0 ">קטגוריה</h5>
+                <hr></hr>
+                <div className="row text-right ">
                   <div className="col">
-                    {" "}
                     <div className="form-group ">
                       <label htmlFor="superVisor">
-                        <h6>קטגוריה </h6>
+                        <h6>קבוצות גיל </h6>
                       </label>
                       <select
+                        dir="rtl"
+                        className="form-control mt-1 text-right"
+                        id="category"
+                        name="category"
+                        placeholder="לבחור קטגוריה"
+                        defaultValue={this.state.category.value}
+                        onBlur={this.inputChange}
+                      >
+                        <option value="0">אחר</option>
+                        <option value="1">קשישים</option>
+                        <option value="2">מבוגרים</option>
+                        <option value="3">ילדים</option>
+                        <option value="4">פעוטות</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group ">
+                      <label htmlFor="superVisor">
+                        <h6>סוגי מוגבלויות </h6>
+                      </label>
+                      <select
+                        dir="rtl"
                         className="form-control mt-1"
                         id="category"
                         name="category"
@@ -454,12 +483,39 @@ class AddProject extends React.Component {
                         defaultValue={this.state.category.value}
                         onBlur={this.inputChange}
                       >
-                        <option value="0"></option>
-                        <option value="1">רב תחומי </option>
-                        <option value="2">א"ב</option>
-                        <option value="3">מומלצים</option>
-                        <option value="4">חדשים</option>
-                        <option value="5">בתקופת נסיון</option>
+                        <option value="0">אחר</option>
+                        <option value="1">אוטיזם בספקטרום האוטיסטי</option>
+                        <option value="2">קטוע גפיים</option>
+                        <option value="3">אנשים לאחר שבץ מוחי</option>
+                        <option value="4">שיתוק מוחין</option>
+                        <option value="5">פגיעות עמוד שדרה</option>
+                        <option value="5">פרקינסון</option>
+                        <option value="5">רעד ראשוני</option>
+                        <option value="5">אורתופדיה</option>
+                        <option value="5">מוגבלות קוגניטיבית</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="form-group ">
+                      <label htmlFor="superVisor">
+                        <h6>סביבות תפקודיות </h6>
+                      </label>
+                      <select
+                        dir="rtl"
+                        className="form-control mt-1"
+                        id="category"
+                        name="category"
+                        placeholder="לבחור קטגוריה"
+                        defaultValue={this.state.category.value}
+                        onBlur={this.inputChange}
+                      >
+                        <option value="0">אחר</option>
+                        <option value="1">מרכזים רפואיים</option>
+                        <option value="2">גני ילדים</option>
+                        <option value="3">בתי אבות</option>
+                        <option value="4">מרכזי תעסוקה</option>
+                        <option value="5">גני משחקים</option>
                       </select>
                     </div>
                   </div>
